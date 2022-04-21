@@ -114,9 +114,7 @@ rm -f *.ipk
 rm -f *.deb
 
 ################################################################################
-## install compiled stuff into data directory with 'make install'
-## try this for all 3 possible build folders, some packages are multi-arch
-## so both 32 and 64 need installing to pkg directory.
+## install compiled stuff into data directory
 ################################################################################
 
 if [ -f px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so ] && \
