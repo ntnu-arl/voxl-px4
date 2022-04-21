@@ -1,0 +1,14 @@
+
+before_script:
+    - git clone -q --depth 1 https://gitlab.com/voxl-public/flight-core-px4/voxl-px4
+
+include:
+  - project: 'voxl-public/voxl-sdk/ci-tools'
+    file: '/pipeline-configs/common.yml'
+  - project: 'voxl-public/voxl-sdk/ci-tools'
+    file: '/pipeline-configs/px4-build-emulator.yml'
+  - project: 'voxl-public/voxl-sdk/ci-tools'
+    file: '/pipeline-configs/common.yml'
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
