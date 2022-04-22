@@ -1,6 +1,6 @@
 
 before_script:
-    - git clone -q --depth 1 https://gitlab.com/voxl-public/flight-core-px4/voxl-px4
+    - git clone -q --depth 1 https://gitlab.com/voxl-public/voxl-sdk/ci-tools
 
 include:
   - project: 'voxl-public/voxl-sdk/ci-tools'
