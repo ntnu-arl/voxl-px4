@@ -1,4 +1,4 @@
-Package: px4-rb5-flight
+Package: voxl-px4
 Version: 1.4-14
 Section: devel
 Priority: optional
