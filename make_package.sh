@@ -135,9 +135,15 @@ if [ -f px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so ] &&
 	sudo chmod a+x $DATA_DIR/usr/bin/px4-alias.sh
 
 	# Install startup configuration files
-	sudo mkdir -p $DATA_DIR/etc/modalai
-	sudo chmod +x configuration/*
-	sudo cp configuration/* $DATA_DIR/etc/modalai
+	sudo mkdir -p $DATA_DIR/etc/modalai/
+	sudo chmod +x px4-firmware/boards/modalai/rb5-flight/*.config
+	sudo cp px4-firmware/boards/modalai/rb5-flight/*.config $DATA_DIR/etc/modalai
+	sudo chmod +x px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/*.config
+	sudo cp px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/*.config $DATA_DIR/etc/modalai/
+
+	# Install startup scripts
+	sudo cp px4-firmware/boards/modalai/rb5-flight/voxl-px4 $DATA_DIR/usr/bin
+	sudo cp px4-firmware/boards/modalai/rb5-flight/voxl-px4-hitl $DATA_DIR/usr/bin
 
 	# Create necessary directories for px4 operation
 	sudo mkdir -p $DATA_DIR/home/linaro/eeprom
