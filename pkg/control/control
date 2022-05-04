@@ -5,5 +5,6 @@ Priority: optional
 Architecture: arm64
 Depends: libfc-sensor
 Replaces: px4-rb5-flight
+Conflicts: px4-rb5-flight
 Maintainer: Eric Katzfey <eric.katzfey@modalai.com>
 Description: ModalAI PX4 flight controller
