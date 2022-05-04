@@ -19,6 +19,17 @@
 
 # Releases
 
+## 1.4.14alpha
+
+- HITL now supports both VIO and GPS modes.
+- HITL now integrated with voxl-vision-px4 and voxl-mavlink-server
+- Renaming some scripts to match voxl naming standards
+- Move parameters and logs to /data partition which is preserved across system image updates
+
+## 1.4.13alpha
+
+- N/A
+
 ## 1.4.12alpha
 
 - Added support for HITL using the Gazebo simulator

@@ -146,7 +146,7 @@ if [ -f px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so ] &&
 	sudo cp px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/voxl-px4-hitl $DATA_DIR/usr/bin
 
 	# Create necessary directories for px4 operation
-	sudo mkdir -p $DATA_DIR/home/linaro/eeprom
+	sudo mkdir -p $DATA_DIR/data/px4
 else
 	echo "Error: Build artifacts not found"
 	exit 1
