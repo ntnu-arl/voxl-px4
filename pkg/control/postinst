@@ -46,6 +46,7 @@ ln -f -s px4 px4-mc_pos_control
 ln -f -s px4 px4-measairspeedsim
 ln -f -s px4 px4-mixer
 ln -f -s px4 px4-motor_ramp
+ln -f -s px4 px4-modalai_gps_timer
 ln -f -s px4 px4-ms4525_airspeed
 ln -f -s px4 px4-ms5525_airspeed
 ln -f -s px4 px4-muorb
