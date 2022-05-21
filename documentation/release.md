@@ -1,9 +1,16 @@
 # Release procedure
 
 - Add release notes to this document
-- On master branch
+- On dev branch
+- On voxl-dev branch in submodule px4-firmware
 - Bump package version number in debian/control
 - Commit and push everything
+- make clean
+- make default and qurt
+- package
+- deploy / validate
+- Merge voxl-dev into voxl-master in submodule px4-firmware
+- Merge dev into master
 - tag it and push tag
   - Tag format: vX.Y.Z-modalai-rb5-flight-<type>
     - Type v for dev
@@ -11,13 +18,21 @@
     - Type t for beta
     - Type rc for Release Candidate RC
     - Type r for Release
-- make clean
-- make default and qurt
-- package
-- deploy / validate
 - post package to cloud bucket
 
 # Releases
+
+## 1.4.15beta
+
+- Release is now considered beta
+- Added optional GPS start line in config file for use with Matek Systems M8Q-5883 module
+- Remove hard coded baudrate for qurt in gps module and use configured rate instead
+- Added support for M0065 IO expander (px4io) on VOXL 2
+- Moved logger start after param load to make sure any parameters that control logging are loaded
+- Changed px4io baud rate to 921600 for RB5
+- Added new GPS timer module to set system time based on GPS time
+- Renaming some scripts to match voxl naming standards
+- Move parameters and logs to /data partition which is preserved across system image updates
 
 ## 1.4.14alpha
 
