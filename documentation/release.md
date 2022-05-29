@@ -22,6 +22,12 @@
 
 # Releases
 
+## 1.4.16beta
+
+- Added support for qmc5883l magnetometer in Matek Sys M8Q-5883 module
+- Added auto baud rate support in GPS to UBX on Qurt
+- Added support for TBS Crossfire receivers (Mavlink mode)
+
 ## 1.4.15beta
 
 - Release is now considered beta
