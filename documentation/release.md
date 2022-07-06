@@ -13,12 +13,15 @@
 - On dev branch
 - Add release notes to this document
 - Bump package version number in debian/control
-- make clean
-- make default and qurt
-- package
+- ./clean.sh (in Docker)
+- ./build.sh (in Docker)
+- ./make_package.sh
 - deploy / validate
+- Commit and push everything
 
 - Merge dev into master
+- Add version tag
+- Commit and push everything
 - post package to cloud bucket
 
 # Releases
