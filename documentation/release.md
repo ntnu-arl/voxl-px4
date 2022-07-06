@@ -1,16 +1,7 @@
 # Release procedure
 
-- Add release notes to this document
-- On dev branch
 - On voxl-dev branch in submodule px4-firmware
-- Bump package version number in debian/control
 - Commit and push everything
-- make clean
-- make default and qurt
-- package
-- deploy / validate
-- Merge voxl-dev into voxl-master in submodule px4-firmware
-- Merge dev into master
 - tag it and push tag
   - Tag format: vX.Y.Z-modalai-rb5-flight-<type>
     - Type v for dev
@@ -18,22 +9,34 @@
     - Type t for beta
     - Type rc for Release Candidate RC
     - Type r for Release
+
+- On dev branch
+- Add release notes to this document
+- Bump package version number in debian/control
+- make clean
+- make default and qurt
+- package
+- deploy / validate
+
+- Merge dev into master
 - post package to cloud bucket
 
 # Releases
 
-## 1.4.16beta
+## 1.4.16alpha
 
 - Added support for qmc5883l magnetometer in Matek Sys M8Q-5883 module
-- Added auto baud rate support in GPS to UBX on Qurt
-- Added support for TBS Crossfire receivers (Mavlink mode)
+- Added auto baud rate support in GPS to UBX on Qurt (Matek)
+- Added support for TBS Crossfire receivers on VOXL 2 (RC only, no telemetry)
+- Updated support for M0065 (aka px4io) on M0054
+- Added decreased timeout for vision system odometry loss
 
 ## 1.4.15beta
 
 - Release is now considered beta
 - Added optional GPS start line in config file for use with Matek Systems M8Q-5883 module
 - Remove hard coded baudrate for qurt in gps module and use configured rate instead
-- Added support for M0065 IO expander (px4io) on VOXL 2
+- Added initial support for M0065 IO expander (px4io) on VOXL 2
 - Moved logger start after param load to make sure any parameters that control logging are loaded
 - Changed px4io baud rate to 921600 for RB5
 - Added new GPS timer module to set system time based on GPS time
