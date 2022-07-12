@@ -26,6 +26,11 @@
 
 # Releases
 
+## 1.4.17beta
+
+- Fixed multiple bugs and tuned M0065 (px4io) for both M0052 and M0054
+- Added mixer support for M0065 (px4io) to enable PWM outputs
+
 ## 1.4.16alpha
 
 - Added support for qmc5883l magnetometer in Matek Sys M8Q-5883 module
