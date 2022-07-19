@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.18beta
+
+- Fixed flaky UART performance with M0065 (aka px4io) on apps proc for M0052
+
 ## 1.4.17beta
 
 - Fixed multiple bugs and tuned M0065 (px4io) for both M0052 and M0054
