@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.19beta
+
+- Removed debug statement in IMU driver that had a bug in it that caused a crash
+
 ## 1.4.18beta
 
 - Fixed flaky UART performance with M0065 (aka px4io) on apps proc for M0052
