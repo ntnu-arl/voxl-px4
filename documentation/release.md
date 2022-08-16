@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.20beta
+
+- Added support for PWM outputs on M0054 using the external M0065 (PX4IO) module
+
 ## 1.4.19beta
 
 - Removed debug statement in IMU driver that had a bug in it that caused a crash

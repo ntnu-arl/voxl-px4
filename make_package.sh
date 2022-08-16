@@ -124,9 +124,10 @@ if [ -f px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so ] &&
 	sudo mkdir -p $DATA_DIR/usr/lib/rfsa/adsp
 	sudo cp px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so $DATA_DIR/usr/lib/rfsa/adsp
 
-	# Install quadrotor mixer file for ESC.
-	# The mixer file comes from ROMFS/px4fmu_common/mixers
+	# Install quadrotor mixer files for UART ESC and PX4IO (M0065)
+	# The mixer files come from ROMFS/px4fmu_common/mixers
 	sudo cp px4-firmware/ROMFS/px4fmu_common/mixers/quad_x.main.mix $DATA_DIR/usr/lib/rfsa/adsp
+	sudo cp px4-firmware/ROMFS/px4fmu_common/mixers/quad_x_io.main.mix $DATA_DIR/usr/lib/rfsa/adsp
 
 	# Install apps proc PX4 executables
 	sudo mkdir -p $DATA_DIR/usr/bin
