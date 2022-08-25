@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.24beta
+
+- Added new TBS Crossfire configuration option for mavlink
+
 ## 1.4.23beta
 
 - Added new flight mode ManualAltitudeCommandVel
