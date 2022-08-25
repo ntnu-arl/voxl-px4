@@ -49,6 +49,7 @@ ln -f -s px4 px4-motor_ramp
 ln -f -s px4 px4-modalai_gps_timer
 ln -f -s px4 px4-ms4525_airspeed
 ln -f -s px4 px4-ms5525_airspeed
+ln -f -s px4 px4-msp_osd
 ln -f -s px4 px4-muorb
 ln -f -s px4 px4-muorb_test
 ln -f -s px4 px4-navigator

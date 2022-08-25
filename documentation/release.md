@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.22beta
+
+- Added support for MSP OSD protocol to support DJI goggles on M0054 only
+
 ## 1.4.21beta
 
 - Added support for mavlink telemetry using TBS Crossfire nano rx receivers
