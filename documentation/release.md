@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.23beta
+
+- Added new flight mode ManualAltitudeCommandVel
+
 ## 1.4.22beta
 
 - Added support for MSP OSD protocol to support DJI goggles on M0054 only
