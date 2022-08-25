@@ -26,6 +26,12 @@
 
 # Releases
 
+## 1.4.21beta
+
+- Added support for mavlink telemetry using TBS Crossfire nano rx receivers
+- Fixed execute privilege on voxl-px4-hitl script
+- Added startup option to rotate IMU by yaw 180
+
 ## 1.4.20beta
 
 - Added support for PWM outputs on M0054 using the external M0065 (PX4IO) module
