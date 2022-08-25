@@ -104,8 +104,9 @@ mkdir -p /home/linaro
 mkdir -p /home/linaro/log
 mkdir -p /home/linaro/mission_log
 
-# Make sure the run script is executable
+# Make sure the run scripts are executable
 chmod a+x voxl-px4
+chmod a+x voxl-px4-hitl
 
 # Enable the autostart service
 systemctl enable voxl-px4.service
