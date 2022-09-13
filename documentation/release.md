@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.25beta
+
+- Skip parameters that change every flight in hash calculation
+
 ## 1.4.24beta
 
 - Added new TBS Crossfire configuration option for mavlink
