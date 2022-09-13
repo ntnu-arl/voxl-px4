@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.4.26beta
+
+- Changes to pwm system command to support PWM ESC calibration
+
 ## 1.4.25beta
 
 - Skip parameters that change every flight in hash calculation
