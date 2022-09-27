@@ -26,6 +26,11 @@
 
 # Releases
 
+## 1.4.27beta
+
+- Initial PX4 remote id support integrated
+- Here3 GPS unit integration
+
 ## 1.4.26beta
 
 - Changes to pwm system command to support PWM ESC calibration
