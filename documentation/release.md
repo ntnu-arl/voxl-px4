@@ -26,6 +26,11 @@
 
 # Releases
 
+## 1.4.28beta
+
+- Turtle mode support in ModalAI ESC driver
+- Enhanced ESC feedback logging for ModalAI ESC driver
+
 ## 1.4.27beta
 
 - Initial PX4 remote id support integrated
