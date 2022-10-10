@@ -26,8 +26,13 @@
 
 # Releases
 
-## 1.4.28beta
+## 1.12.29beta
 
+- ModalAI ESC MR1 backport from px4:main
+
+## 1.12.28beta
+
+- update version from 1.4* to 1.12* to match PX4 version
 - Turtle mode support in ModalAI ESC driver
 - Enhanced ESC feedback logging for ModalAI ESC driver
 
