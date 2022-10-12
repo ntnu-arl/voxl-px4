@@ -1,4 +1,166 @@
+1.12.29
+    * ModalAI ESC MR1 backport from px4:main
 1.12.28
     * update version number to clear 1.12.xxx scheme
-1.4.28
-    * Turtle mode and enhanced ESC logging
+    * Turtle mode support in ModalAI ESC driver
+    * Enhanced ESC feedback logging for ModalAI ESC driver
+1.4.27
+    * Initial PX4 remote id support integrated
+    * Here3 GPS unit integration
+1.4.26
+    * Changes to pwm system command to support PWM ESC calibration
+1.4.25
+    * Skip parameters that change every flight in hash calculation
+1.4.24
+    * Added new TBS Crossfire configuration option for mavlink
+1.4.23
+    * Added new flight mode ManualAltitudeCommandVel
+1.4.22
+    * Added support for MSP OSD protocol to support DJI goggles on M0054 only
+1.4.21
+    * Added support for mavlink telemetry using TBS Crossfire nano rx receivers
+    * Fixed execute privilege on voxl-px4-hitl script
+    * Added startup option to rotate IMU by yaw 180
+1.4.20
+    * Added support for PWM outputs on M0054 using the external M0065 (PX4IO) module
+1.4.19
+    * Removed debug statement in IMU driver that had a bug in it that caused a crash
+1.4.18
+    * Fixed flaky UART performance with M0065 (aka px4io) on apps proc for M0052
+1.4.17
+    * Fixed multiple bugs and tuned M0065 (px4io) for both M0052 and M0054
+    * Added mixer support for M0065 (px4io) to enable PWM outputs
+1.4.16
+    * Added support for qmc5883l magnetometer in Matek Sys M8Q-5883 module
+    * Added auto baud rate support in GPS to UBX on Qurt (Matek)
+    * Added support for TBS Crossfire receivers on VOXL 2 (RC only, no telemetry)
+    * Updated support for M0065 (aka px4io) on M0054
+    * Added decreased timeout for vision system odometry loss
+1.4.15
+    * Release is now considered
+    * Added optional GPS start line in config file for use with Matek Systems M8Q-5883 module
+    * Remove hard coded baudrate for qurt in gps module and use configured rate instead
+    * Added initial support for M0065 IO expander (px4io) on VOXL 2
+    * Moved logger start after param load to make sure any parameters that control logging are loaded
+    * Changed px4io baud rate to 921600 for RB5
+    * Added new GPS timer module to set system time based on GPS time
+    * Renaming some scripts to match voxl naming standards
+    * Move parameters and logs to /data partition which is preserved across system image updates
+1.4.14
+    * HITL now supports both VIO and GPS modes.
+    * HITL now integrated with voxl-vision-px4 and voxl-mavlink-server
+    * Renaming some scripts to match voxl naming standards
+    * Move parameters and logs to /data partition which is preserved across system image updates
+1.4.12
+    * Added support for HITL using the Gazebo simulator
+1.4.11
+    * Changed Mavlink configuration method. All communication now goes through voxl-mavlink-server and voxl-vision-px4
+1.4.10
+    * Fixed bug in barometer temperature calculation. Register value is unsigned, not signed!
+1.4.9
+    * Some minor DSP test signature related changes
+1.4.8
+    * Added voxl-px4.service to autostart px4
+    * Added call to generate a SLPI DSP test signature in postinst
+    * Added a check in the voxl.config startup script to make sure test signature is available
+    * Consolidating m0052 / m0054 into single voxl structure with automatic platform configuration
+1.4.7
+    * Decreased the polling rate of UART drivers running on Qurt to avoid starving the OS services
+    * Improve comms error counting in icp10100 barometer driver
+    * Added a set command to the rgbled_ncp5623c driver
+    * Added a performance counter to rgbled_ncp5623c to count bad i2c transfers
+    * Changed qshell on apps side to return the value received from the DSP instead of 0
+1.4.6
+    * Fixed typo in qgc-ip.cfg
+1.4.5
+    * Fixed default value of MPC_THR_HOVER to 0.42
+    * Removed the -e logger option from m0054
+    * Added ability to configure QGC port number
+1.4.4
+    * Improved the bad packet detection in the Spektrum RC driver
+1.4.3
+    * Moved logger start to beginning of sequence to capture driver and module startup messages
+    * Fixed the QGC address script to allow blank lines
+1.4.2
+    * Fixed some Voxl2 startup script errors
+1.4.1
+    * Fixed packaging and installed scripts for Voxl2
+1.4.0
+    * Updated Spektrum RC and GPS drivers to work on QURT to support Voxl2
+1.1.9
+    * Updated barometer driver calculations to exactly match original TDK driver for icp10100
+1.1.8
+    * Added more default parameters. They are set up for indoor flights
+    * Removed hard-coded baud rate configuration of the gps. It will now auto-detect the rate.
+    * Enabled the LED on the GPS unit
+    * Added a new feature to allow choice of QGC IP address via configuration file
+    * Auto detect presence of M0065 (PX4IO). Start px4io if detected, spektrum rc driver otherwise
+1.1.7
+    * Completed the mechanism to allow sending debug messages from SLPI to Apps for logging
+1.1.6
+    * Added a mechanism to allow sending debug messages from SLPI to Apps for logging
+1.1.5
+    * Fixed casting error for icp10100 barometer otp data
+    * Create log file names without the time in the name unless we have GPS time
+    * Fixed BAT default parameter setting to use BAT instead of BAT1
+1.1.4
+    * Added default battery parameter settings to m0052-set-default-parameters.config
+    * Clean up I2C and SPI device id creation to zero out unused bits
+1.1.3
+    * Modified icm42688p driver such that flight control gets 500Hz IMU samples and
+      VIO (via imu_server) gets 1kHz samples in a batch of 10 every 100ms.
+    * icm42688p driver is now configured for anti-alias and UI filtering
+1.1.2
+    * Moved from TDK icp10100 barometer driver to new px4 icp10100 barometer driver.
+1.1.1
+    * Changed IMU server from using raw sensor data to using calibrated / filtered sensor data
+1.1.0
+    * Moved from Invensense IMU driver to PX4 IMU driver
+    * Bumped minor revision number since the IMU change is quite significant
+1.0.20
+    * Added pwm_out_sim driver to qurt build to support HIL testing
+    * Add rc_update start back into startup configuration
+1.0.19
+    * Added fsync on log file close
+1.0.18
+    * Spektrum RC driver throws out first packet if it is too small. Prevents
+      the loss of RC when the occasional first packet is a "runt" and corrupts DSM parser.
+1.0.17
+    * Removed the -e option from logger start
+    * Upped default MAX RPM to 10500
+    * Moved sensor driver start before the modules that rely on them to prevent timeouts
+1.0.16
+    * Add imu_server start to default configuration
+1.0.15
+    * Added method to update the time offset on SLPI
+    * Changed motor mappings to match default for seeker drone
+    * Changed RC parameters to no longer assume joystick
+1.0.14
+    * Added module starts for the flight_mode_manager and mc_hover_thrust_estimator
+1.0.13
+    * Added mc_hover_thrust_estimator module into qurt build
+1.0.12
+    * Set COM_ARM_WO_GPS to 0 to prevent QGC showing GPS as disabled
+    * Added flight_mode_manager module into apps (default) build
+1.0.11
+    * Touch SYS_AUTOCONFIG to make QGC missing parameter error message go away
+    * Remove annoying preflight fail debug messages
+    * Remove IMU server high frequency debug messages
+1.0.10
+    * Fixed orientation of magnetometer
+    * Added an IMU server for integration with VIO. It isn't started by default.
+    * Changed the way that parameters are loaded so that any changes won't get overwritten on the next reboot
+    * Moved some of the drone specific scripts and startup service files out of this project
+1.0.9
+    * Changed voxlpm to only support AN231 on Qurt PX4 to avoid the issues with slave address reconfiguration
+1.0.8dev
+    * Do not hardcode Qurt I2C devices to be "internal". Experimental.
+1.0.7
+    * Added verbose mode to Spektrum RC driver
+    * Fixed serial port numbers for GPS and Spektrum RC
+1.0.6
+    * Added support for Spektrum RC
+1.0.5
+    * Support for new 9.1 based SLPI release
+1.0.4
+    * First functional release
