@@ -1,3 +1,5 @@
+1.12.30
+    * Update for remote ID, fix missing GPS info
 1.12.29
     * ModalAI ESC MR1 backport from px4:main
 1.12.28
