@@ -26,9 +26,17 @@
 
 # Releases
 
+## 1.12.31beta
+
+- Add raw CRSF capability to TBS Crossfire driver for ExpressLRS support
+
+## 1.12.30beta
+
+- Open DroneID initial support
+
 ## 1.12.29beta
 
-- ModalAI ESC MR1 backport from px4:main
+- ModalAI ESC MR1 backport from px4:main (Enhanced ESC logging)
 
 ## 1.12.28beta
 
