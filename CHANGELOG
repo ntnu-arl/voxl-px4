@@ -1,3 +1,5 @@
+1.12.31
+    * Add raw CRSF capability to TBS Crossfire driver for ExpressLRS support
 1.12.30
     * Update for remote ID, fix missing GPS info
 1.12.29
