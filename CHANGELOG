@@ -1,3 +1,5 @@
+WIP
+    * M0065: load PWM params from PX4 params instead of hardcoded values
 1.12.31
     * Add raw CRSF capability to TBS Crossfire driver for ExpressLRS support
 1.12.30
