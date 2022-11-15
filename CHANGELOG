@@ -1,5 +1,7 @@
-WIP
+1.12.32
     * M0065: load PWM params from PX4 params instead of hardcoded values
+    * M0065: pwm cal, use safer hardcoded values per review
+    * Tools: Fixed installation convenience script
 1.12.31
     * Add raw CRSF capability to TBS Crossfire driver for ExpressLRS support
 1.12.30
