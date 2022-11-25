@@ -26,6 +26,15 @@
 
 # Releases
 
+## 1.12.33beta
+
+- Add generic uORB topic aggregator to SLPI to apps link
+- Change IMU to 8 kHz ODR and 800 Hz sample rate
+
+## 1.12.32beta
+
+- Improvements to PWM calibration and PWM parameter settings
+
 ## 1.12.31beta
 
 - Add raw CRSF capability to TBS Crossfire driver for ExpressLRS support
