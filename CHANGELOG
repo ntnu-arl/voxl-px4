@@ -1,3 +1,5 @@
+1.12.34
+    * Add System ID feature
 1.12.33
     * Add generic uORB topic aggregator to SLPI to apps link
     * Change IMU to 8 kHz ODR and 800 Hz sample rate

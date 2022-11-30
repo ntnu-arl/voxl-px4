@@ -26,6 +26,10 @@
 
 # Releases
 
+## 1.12.24beta
+
+- Add system ID feature
+
 ## 1.12.33beta
 
 - Add generic uORB topic aggregator to SLPI to apps link
