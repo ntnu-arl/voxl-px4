@@ -6,22 +6,21 @@ source /home/build-env.sh
 
 cd px4-firmware
 
-echo "*** First describe ***"
-git describe --always --tags --dirty
-echo "*** First log ***"
-git --no-pager log -n 4
-echo "*** Grab all tags ***"
-git fetch --all --tags
-echo "*** Second describe ***"
-git describe --always --tags --dirty
-echo "*** Second log ***"
-git --no-pager log -n 4
-echo "*** End git diagnostics ***"
+echo "*** Starting apps processor build ***"
 
-make modalai_rb5-flight_default
-make modalai_rb5-flight_qurt
+make modalai_voxl2
 
-cat build/modalai_rb5-flight_default/src/lib/version/build_git_version.h
+cat build/modalai_voxl2_default/src/lib/version/build_git_version.h
+
+echo "*** End of apps processor build ***"
+
+echo "*** Starting qurt slpi build ***"
+
+make modalai_voxl2-slpi
+
+cat build/modalai_voxl2-slpi_default/src/lib/version/build_git_version.h
+
+echo "*** End of qurt slpi build ***"
 
 cd -
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Copyright (c) 2022 ModalAI, Inc. All rights reserved.
+# Copyright (c) 2023 ModalAI, Inc. All rights reserved.
 #
 # Semi-universal script for making a deb and ipk package. This is shared
 # between the vast majority of VOXL-SDK packages
@@ -117,34 +117,26 @@ rm -f *.deb
 ## install compiled stuff into data directory
 ################################################################################
 
-if [ -f px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so ] && \
-   [ -f px4-firmware/build/modalai_rb5-flight_default/bin/px4 ] && \
-   [ -f px4-firmware/build/modalai_rb5-flight_default/bin/px4-alias.sh ]; then
+if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ] && \
+   [ -f px4-firmware/build/modalai_voxl2_default/bin/px4 ] && \
+   [ -f px4-firmware/build/modalai_voxl2_default/bin/px4-alias.sh ]; then
 	# Copy the SLPI DSP PX4 library
 	sudo mkdir -p $DATA_DIR/usr/lib/rfsa/adsp
-	sudo cp px4-firmware/build/modalai_rb5-flight_qurt/platforms/qurt/libpx4.so $DATA_DIR/usr/lib/rfsa/adsp
-
-	# Install quadrotor mixer files for UART ESC and PX4IO (M0065)
-	# The mixer files come from ROMFS/px4fmu_common/mixers
-	sudo cp px4-firmware/ROMFS/px4fmu_common/mixers/quad_x.main.mix $DATA_DIR/usr/lib/rfsa/adsp
-	sudo cp px4-firmware/ROMFS/px4fmu_common/mixers/quad_x_io.main.mix $DATA_DIR/usr/lib/rfsa/adsp
+	sudo cp px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so $DATA_DIR/usr/lib/rfsa/adsp
 
 	# Install apps proc PX4 executables
 	sudo mkdir -p $DATA_DIR/usr/bin
-	sudo cp px4-firmware/build/modalai_rb5-flight_default/bin/px4 $DATA_DIR/usr/bin
-	sudo cp px4-firmware/build/modalai_rb5-flight_default/bin/px4-alias.sh $DATA_DIR/usr/bin
+	sudo cp px4-firmware/build/modalai_voxl2_default/bin/px4 $DATA_DIR/usr/bin
+	sudo cp px4-firmware/build/modalai_voxl2_default/bin/px4-alias.sh $DATA_DIR/usr/bin
 	sudo chmod a+x $DATA_DIR/usr/bin/px4-alias.sh
 
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
-	sudo chmod +x px4-firmware/boards/modalai/rb5-flight/*.config
-	sudo cp px4-firmware/boards/modalai/rb5-flight/*.config $DATA_DIR/etc/modalai
-	sudo chmod +x px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/*.config
-	sudo cp px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/*.config $DATA_DIR/etc/modalai/
+	sudo chmod +x px4-firmware/boards/modalai/voxl2/target/*.config
+	sudo cp px4-firmware/boards/modalai/voxl2/target/*.config $DATA_DIR/etc/modalai
 
 	# Install startup scripts
-	sudo cp px4-firmware/boards/modalai/rb5-flight/voxl-px4 $DATA_DIR/usr/bin
-	sudo cp px4-firmware/boards/modalai/rb5-flight/gazebo_hitl/voxl-px4-hitl $DATA_DIR/usr/bin
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4 $DATA_DIR/usr/bin
 
 	# Create necessary directories for px4 operation
 	sudo mkdir -p $DATA_DIR/data/px4/param
