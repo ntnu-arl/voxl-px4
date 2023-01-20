@@ -4,23 +4,34 @@ echo "*** Starting build ***"
 
 source /home/build-env.sh
 
+APPS_BUILD="ON"
+SLPI_BUILD="ON"
+
+while getopts "as" flag
+do
+    case "${flag}" in
+        # Use -a to force apps only build
+        a) SLPI_BUILD="OFF";;
+        # Use -s to force SLPI only build
+        s) APPS_BUILD="OFF";;
+    esac
+done
+
 cd px4-firmware
 
-echo "*** Starting apps processor build ***"
+if [ "$APPS_BUILD" == "ON" ]; then
+    echo "*** Starting apps processor build ***"
+    make modalai_voxl2
+    cat build/modalai_voxl2_default/src/lib/version/build_git_version.h
+    echo "*** End of apps processor build ***"
+fi
 
-make modalai_voxl2
-
-cat build/modalai_voxl2_default/src/lib/version/build_git_version.h
-
-echo "*** End of apps processor build ***"
-
-echo "*** Starting qurt slpi build ***"
-
-make modalai_voxl2-slpi
-
-cat build/modalai_voxl2-slpi_default/src/lib/version/build_git_version.h
-
-echo "*** End of qurt slpi build ***"
+if [ "$SLPI_BUILD" == "ON" ]; then
+    echo "*** Starting qurt slpi build ***"
+    make modalai_voxl2-slpi
+    cat build/modalai_voxl2-slpi_default/src/lib/version/build_git_version.h
+    echo "*** End of qurt slpi build ***"
+fi
 
 cd -
 
