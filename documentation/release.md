@@ -1,16 +1,15 @@
 # Release procedure
 
-- On voxl-dev branch in submodule px4-firmware
+- On voxl2_main_dev branch in submodule px4-firmware
 - Commit and push everything
 - tag it and push tag
-  - Tag format: vX.Y.Z-modalai-rb5-flight-<type>
-    - Type v for dev
-    - Type p for alpha
-    - Type t for beta
-    - Type rc for Release Candidate RC
-    - Type r for Release
+  - Tag format: vX.Y.Z-X.Y.Z-modalai-voxl2-<type>
+    - First X.Y.Z is for PX4 version number
+    - Second X.Y.Z is for our ModalAI vendor version number
+    - Type: v or ty for dev, p for alpha, t for beta, rc for Release Candidate RC, or r for Release
+    - Note: type will default to dev if no type is specified due to the v in voxl2
 
-- On dev branch
+- On dev-mainline-px4 branch
 - Add release notes to this document
 - Bump package version number in debian/control
 - ./clean.sh (in Docker)
@@ -25,6 +24,10 @@
 - post package to cloud bucket
 
 # Releases
+
+## 1.14.0-2.0.0
+
+- First version that uses mainline PX4 code
 
 ## 1.12.24beta
 
