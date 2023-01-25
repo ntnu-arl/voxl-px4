@@ -1,6 +1,6 @@
 # Release procedure
 
-- On voxl2_main_dev branch in submodule px4-firmware
+- On voxl-dev branch in submodule px4-firmware
 - Commit and push everything
 - tag it and push tag
   - Tag format: vX.Y.Z-X.Y.Z-modalai-voxl2-<type>
@@ -9,7 +9,7 @@
     - Type: v or ty for dev, p for alpha, t for beta, rc for Release Candidate RC, or r for Release
     - Note: type will default to dev if no type is specified due to the v in voxl2
 
-- On dev-mainline-px4 branch
+- On dev branch
 - Add release notes to this document
 - Bump package version number in debian/control
 - ./clean.sh (in Docker)
@@ -24,6 +24,16 @@
 - post package to cloud bucket
 
 # Releases
+
+## 1.14.0-2.0.1
+
+- Merged in latest mainline from PX4
+    - This changes modalai_esc to modal_io (All parameter names change)
+- Enabled magnetometer drivers
+
+## 1.14.0-2.0.0
+
+- First version that uses mainline PX4 code
 
 ## 1.14.0-2.0.0
 
