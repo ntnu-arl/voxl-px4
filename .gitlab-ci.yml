@@ -1,6 +1,8 @@
 
 before_script:
+    - cd px4-firmware
     - git fetch --tags
+    - cd ..
     - git clone -q --depth 1 https://gitlab.com/voxl-public/voxl-sdk/ci-tools
 
 include:
