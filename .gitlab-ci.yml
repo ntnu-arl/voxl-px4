@@ -1,12 +1,10 @@
-
-before_script:
-    - git clone -q --depth 1 https://gitlab.com/voxl-public/voxl-sdk/ci-tools
-
-include:
-  - project: 'voxl-public/voxl-sdk/ci-tools'
-    file: '/pipeline-configs/common.yml'
-  - project: 'voxl-public/voxl-sdk/ci-tools'
-    file: '/pipeline-configs/qrb5165-px4.yml'
-
 variables:
     GIT_SUBMODULE_STRATEGY: recursive
+
+build_qrb5165_px4_main:
+  image: rb5-flight-px4-build-docker
+  stage: build
+  tags:
+    - threadripper
+  script:
+    - echo "Test"
