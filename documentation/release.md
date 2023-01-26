@@ -17,7 +17,6 @@
 - ./make_package.sh
 - deploy / validate
 - Commit and push everything
-
 - Merge dev into master
 - Add version tag
 - Commit and push everything
@@ -27,7 +26,7 @@
 
 ## 1.14.0-2.0.2
 
-- Added in Daniel Mellingers system id and filtering changes
+- Added in Daniel Mellinger's system id changes
 
 ## 1.14.0-2.0.1
 
