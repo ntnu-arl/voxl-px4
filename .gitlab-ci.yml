@@ -8,6 +8,3 @@ include:
   - project: 'voxl-public/voxl-sdk/ci-tools'
     file: '/pipeline-configs/qrb5165-px4.yml'
 
-variables:
-    GIT_SUBMODULE_STRATEGY: recursive
-    GIT_STRATEGY: clone
