@@ -3,11 +3,10 @@
 - On voxl-dev branch in submodule px4-firmware
 - Commit and push everything
 - tag it and push tag
-  - Tag format: vX.Y.Z-X.Y.Z-modalai-voxl2-<type>
+  - Tag format: vX.Y.Z-X.Y.Z-<type>
     - First X.Y.Z is for PX4 version number
     - Second X.Y.Z is for our ModalAI vendor version number
-    - Type: v or ty for dev, p for alpha, t for beta, rc for Release Candidate RC, or r for Release
-    - Note: type will default to dev if no type is specified due to the v in voxl2
+    - Type: v for dev, p for alpha, t for beta, rc for Release Candidate RC, or r for Release
 
 - On dev branch
 - Add release notes to this document
@@ -23,6 +22,12 @@
 - post package to cloud bucket
 
 # Releases
+
+## 1.14.0-2.0.3
+
+- Fixed a couple of benign error conditions
+- Added GPS driver
+- Added transport of raw info logs from SLPI to apps for display
 
 ## 1.14.0-2.0.2
 
