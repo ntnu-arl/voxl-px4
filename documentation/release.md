@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.4
+
+- Added Spektrum RC driver
+- Changed voxl-px4 options so that GPS has to be specified
+
 ## 1.14.0-2.0.3
 
 - Fixed a couple of benign error conditions
