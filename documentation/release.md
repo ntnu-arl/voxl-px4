@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.5
+
+- Updated sleep in service file to prevent segfault on startup
+- Fixed some benign error conditions causing distracting reports
+- Merged in latest PX4 mainline changes
+
 ## 1.14.0-2.0.4
 
 - Added Spektrum RC driver
