@@ -138,6 +138,13 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	# Install startup scripts
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4 $DATA_DIR/usr/bin
 
+	# Include required compressed metadata from build
+	sudo mkdir -p $DATA_DIR/data/px4/etc/extras
+	sudo cp px4-firmware/build/modalai_voxl2_default/parameters.json.xz $DATA_DIR/data/px4/etc/extras
+	sudo cp px4-firmware/build/modalai_voxl2_default/events/all_events.json.xz $DATA_DIR/data/px4/etc/extras
+	sudo cp px4-firmware/build/modalai_voxl2_default/component_general.json.xz $DATA_DIR/data/px4/etc/extras
+	sudo cp px4-firmware/build/modalai_voxl2_default/actuators.json.xz $DATA_DIR/data/px4/etc/extras
+
 	# Create necessary directories for px4 operation
 	sudo mkdir -p $DATA_DIR/data/px4/param
 else

@@ -6,7 +6,7 @@
   - Tag format: vX.Y.Z-X.Y.Z-<type>
     - First X.Y.Z is for PX4 version number
     - Second X.Y.Z is for our ModalAI vendor version number
-    - Type: v for dev, p for alpha, t for beta, rc for Release Candidate RC, or r for Release
+    - Type: dev, alpha<number>, beta<number>, rc<number>
 
 - On dev branch
 - Add release notes to this document
@@ -22,6 +22,10 @@
 - post package to cloud bucket
 
 # Releases
+
+## 1.14.0-2.0.6
+
+- Add component metadata file to installation to enable actuators tab in QGC
 
 ## 1.14.0-2.0.5
 
