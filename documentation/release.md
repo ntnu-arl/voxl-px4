@@ -23,6 +23,15 @@
 
 # Releases
 
+## 1.14.0-2.0.8
+
+- Moved rc_input back to apps side. SLPI side is out of memory!
+
+## 1.14.0-2.0.7
+
+- Merged in latest PX4 mainline changes
+- Moved rc_input, manual_control, and control_allocator modules from apps side to slpi side
+
 ## 1.14.0-2.0.6
 
 - Add component metadata file to installation to enable actuators tab in QGC
