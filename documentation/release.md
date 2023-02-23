@@ -23,6 +23,18 @@
 
 # Releases
 
+## 1.14.0-2.0.10
+
+- Fixes for the Qurt spektrum RC driver
+
+## 1.14.0-2.0.9
+
+- Moved commander module to the DSP side to avoid erroneous timeouts and failsafes on RC control
+- Moved rc_input back to SLPI side since we have increased the amount of available memory
+- Added ESC verbose logging and always send esc_status message
+- Fixed missing parts of QGC actuator tab support
+- Fixed argument handling for px4 tasks in Qurt
+
 ## 1.14.0-2.0.8
 
 - Moved rc_input back to apps side. SLPI side is out of memory!
