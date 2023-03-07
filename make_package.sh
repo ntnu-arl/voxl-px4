@@ -158,8 +158,11 @@ fi
 
 if [ -d "services" ]; then
 	sudo mkdir -p $DATA_DIR/etc/systemd/system/
-	sudo cp services/* $DATA_DIR/etc/systemd/system/
+	sudo cp services/*.service $DATA_DIR/etc/systemd/system/
 fi
+
+# hack to support switching between service files with voxl-configure-px4
+sudo cp services/* $DATA_DIR/etc/
 
 if [ -d "scripts" ]; then
 	sudo mkdir -p $DATA_DIR/usr/bin/
