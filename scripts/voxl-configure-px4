@@ -46,7 +46,7 @@ print_usage () {
 	echo ""
 	echo "voxl-configure-px4 disable"
 	echo "voxl-configure-px4 enable"
-    echo "voxl-configure-px4 default"
+    echo "voxl-configure-px4 factory_enable"
     echo "voxl-configure-px4 sentinel"
     echo "voxl-configure-px4 fpv"
 	echo ""
@@ -102,7 +102,7 @@ case ${arg} in
 	"enable")
 		enable_service_and_exit
 		;;
-    "default")
+    "factory_enable")
         cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
         systemctl daemon-reload
 		enable_service_and_exit
@@ -136,13 +136,13 @@ esac
 echo " "
 echo "Which configuration of voxl-px4 would you like to use?"
 echo ""
-echo "default                use default settings"
+echo "factory_enable         use default factory settings"
 echo "sentinel               use settings for Sentinel"
 echo "fpv                    use settings for FPV"
 echo ""
-select opt in "default" "sentinel" "fpv"; do
+select opt in "factory_enable" "sentinel" "fpv"; do
 case $opt in
-default )
+factory_enable )
     cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
     systemctl daemon-reload
 	break;;
