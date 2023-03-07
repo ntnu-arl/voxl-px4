@@ -109,9 +109,6 @@ mkdir -p /data/px4/param
 chmod a+x voxl-px4
 # chmod a+x voxl-px4-hitl
 
-# Enable the autostart service
-systemctl enable voxl-px4.service
-
 # Check to see if a DSP test signature exists
 if /bin/ls /usr/lib/rfsa/adsp/testsig-*.so &> /dev/null; then
     /bin/echo "Found DSP signature file"
