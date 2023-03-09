@@ -23,6 +23,10 @@
 
 # Releases
 
+## 1.14.0-2.0.11
+
+- Add voxl-configure-px4
+
 ## 1.14.0-2.0.10
 
 - Fixes for the Qurt spektrum RC driver
