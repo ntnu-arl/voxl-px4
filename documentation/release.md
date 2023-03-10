@@ -23,9 +23,17 @@
 
 # Releases
 
+## 1.14.0-2.0.12
+
+- Updated px4 to latest mainline
+- Moved from custom CRSF driver to standard PX4 CRSF driver
+- Fixed calibration failures with commander running on DSP
+- Added multicopter autotune updates to allow choice of axes
+
 ## 1.14.0-2.0.11
 
 - Add voxl-configure-px4
+- Firmware is still v2.0.10!!!
 
 ## 1.14.0-2.0.10
 
