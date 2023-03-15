@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.13
+
+- Fix for mag calibration crash. malloc and free were not implemented on Qurt!
+- Optic flow fixes
+- Position hold state initialization fix (NAN issue)
+
 ## 1.14.0-2.0.12
 
 - Updated px4 to latest mainline

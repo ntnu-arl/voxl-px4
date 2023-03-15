@@ -4,7 +4,7 @@ After=sscrpcd.service
 Requires=sscrpcd.service
 
 [Service]
-ExecStartPre=/bin/sleep 7
+ExecStartPre=/bin/sleep 2
 ExecStart=/bin/bash -c "PATH=/usr/bin voxl-px4 -d -m -i -c -o"
 
 [Install]
