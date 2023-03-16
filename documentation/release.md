@@ -23,6 +23,10 @@
 
 # Releases
 
+## 1.14.0-2.0.14
+
+- Added radio status publication to mavlink rc driver
+
 ## 1.14.0-2.0.13
 
 - Fix for mag calibration crash. malloc and free were not implemented on Qurt!
