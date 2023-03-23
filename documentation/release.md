@@ -23,6 +23,10 @@
 
 # Releases
 
+## 1.14.0-2.0.16
+
+- Added support for ublox MAX-M10S GPS receiver
+
 ## 1.14.0-2.0.15
 
 - Moved CRSF default baudrate back to 420000
