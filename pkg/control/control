@@ -3,7 +3,7 @@ Version: 2.0.14
 Section: devel
 Priority: optional
 Architecture: arm64
-Depends: libfc-sensor
+Depends: libfc-sensor, voxl2-system-image(>=1.5.4)
 Replaces: px4-rb5-flight
 Conflicts: px4-rb5-flight
 Maintainer: Eric Katzfey <eric.katzfey@modalai.com>
