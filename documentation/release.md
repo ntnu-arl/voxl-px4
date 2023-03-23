@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.15
+
+- Moved CRSF default baudrate back to 420000
+- Updated logged topics to include all optical flow topics at full rate
+- Updated time to consider range data recent in optical flow to account for slower update rate
+
 ## 1.14.0-2.0.14
 
 - Added radio status publication to mavlink rc driver
