@@ -23,6 +23,10 @@
 
 # Releases
 
+## 1.14.0-2.0.17
+
+- Merged in hacks for thermal optic flow operation
+
 ## 1.14.0-2.0.16
 
 - Added support for ublox MAX-M10S GPS receiver
