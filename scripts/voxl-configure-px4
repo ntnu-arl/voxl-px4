@@ -34,8 +34,8 @@
 
 NAME="voxl-px4"
 SERVICE_FILE="${NAME}.service"
+CONFIG_FILE="/etc/modalai/${NAME}.conf"
 USER=$(whoami)
-
 
 print_usage () {
 	echo ""
@@ -56,6 +56,36 @@ print_usage () {
 	exit 0
 }
 
+## set most parameters which don't have quotes in json
+set_param () {
+	if [ "$#" != "2" ]; then
+		echo "set_param expected 2 args"
+		exit 1
+	fi
+
+	# remove quotes if they exist
+	var=$1
+	var="${var%\"}"
+	var="${var#\"}"
+	val=$2
+	val="${val%\"}"
+	val="${val#\"}"
+
+	sed -E -i "/\"$var\":/c\	\"$var\":	$val," ${CONFIG_FILE}
+}
+
+## set string parameters which need quotes in json
+set_param_string () {
+	if [ "$#" != "2" ]; then
+		echo "set_param_string expected 2 args"
+		exit 1
+	fi
+	var=$1
+	var="${var%\"}"
+	var="${var#\"}"
+	sed -E -i "/\"$var\":/c\	\"$var\":	\"$2\"," ${CONFIG_FILE}
+}
+
 disable_service_and_exit () {
 	echo "disabling ${NAME} systemd service"
 	systemctl disable ${SERVICE_FILE}
@@ -72,6 +102,12 @@ enable_service_and_exit () {
 	systemctl restart  ${SERVICE_FILE}
 	echo "Done configuring ${NAME}"
 	exit 0
+}
+
+reset_config_file_to_default () {
+	echo "wiping old config file"
+	rm -rf ${CONFIG_FILE}
+	${NAME} -c
 }
 
 ################################################################################
@@ -103,28 +139,27 @@ case ${arg} in
 		enable_service_and_exit
 		;;
     "factory_enable")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+		reset_config_file_to_default
 		enable_service_and_exit
 		;;
-    "d0006")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+	"d0005_v2"|"starling_v2")
+		reset_config_file_to_default
+		set_param_string gps MATEK
+		set_param_string rc CRSF_RAW
+		enable_service_and_exit
+		;;
+    "d0006_v1"|"sentinel_v1")
+		reset_config_file_to_default
+		set_param_string gps HOLYBRO
+		set_param_string rc SPEKTRUM
 		enable_service_and_exit
         ;;
-    "sentinel")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
-		enable_service_and_exit
-		;;
-    "d0008")
-        cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
-		enable_service_and_exit
-		;;
-    "fpv")
-        cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+    "d0008"|"fpv_revB")
+		reset_config_file_to_default
+		set_param_string gps MATEK
+		set_param_string rc CRSF_RAW
+		set_param_string imu_rotation 4
+		set_param_string osd enable
 		enable_service_and_exit
 		;;
 	*)
@@ -132,6 +167,27 @@ case ${arg} in
 		print_usage
 		exit 1
 esac
+
+################################################################################
+## no optional arguments, start config wizard prompts
+################################################################################
+
+echo " "
+echo "Do you want to reset the config file to factory defaults?"
+select opt in "yes" "no"; do
+case $opt in
+yes )
+	reset_config_file_to_default
+	break;;
+no )
+	echo "loading and updating config file with ${NAME} -c"
+	${NAME} -c
+	break;;
+*)
+	echo "invalid option"
+	esac
+done
+
 
 echo " "
 echo "Which configuration of voxl-px4 would you like to use?"
@@ -143,16 +199,10 @@ echo ""
 select opt in "factory_enable" "sentinel" "fpv"; do
 case $opt in
 factory_enable )
-    cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 sentinel )
-	cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 fpv )
-	cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 *)
 	echo "invalid option"

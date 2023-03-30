@@ -133,10 +133,8 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
 	sudo chmod +x px4-firmware/boards/modalai/voxl2/target/*.config
-	sudo cp px4-firmware/boards/modalai/voxl2/target/*.config $DATA_DIR/etc/modalai
-
-	# Install startup scripts
-	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4 $DATA_DIR/usr/bin
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-fake-imu-calibration.config $DATA_DIR/etc/modalai
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-set-default-parameters.config $DATA_DIR/etc/modalai
 
 	# Include required compressed metadata from build
 	sudo mkdir -p $DATA_DIR/data/px4/etc/extras
@@ -160,9 +158,6 @@ if [ -d "services" ]; then
 	sudo mkdir -p $DATA_DIR/etc/systemd/system/
 	sudo cp services/*.service $DATA_DIR/etc/systemd/system/
 fi
-
-# hack to support switching between service files with voxl-configure-px4
-sudo cp services/* $DATA_DIR/etc/
 
 if [ -d "scripts" ]; then
 	sudo mkdir -p $DATA_DIR/usr/bin/

@@ -1,0 +1,125 @@
+#!/bin/bash
+
+# Make sure that the SLPI DSP test signature is there otherwise px4 cannot run
+# on the DSP
+if /bin/ls /usr/lib/rfsa/adsp/testsig-*.so &> /dev/null; then
+    /bin/echo "Found DSP signature file"
+else
+    /bin/echo "[WARNING] Could not find DSP signature file"
+    # Look for the DSP signature generation script
+    if [ -f /share/modalai/qrb5165-slpi-test-sig/generate-test-sig.sh ]; then
+        /bin/echo "[INFO] Attempting to generate the DSP signature file"
+        # Automatically generate the test signature so that px4 can run on SLPI DSP
+        /share/modalai/qrb5165-slpi-test-sig/generate-test-sig.sh
+    else
+        /bin/echo "[ERROR] Could not find the DSP signature file generation script"
+        exit 0
+    fi
+fi
+
+CONFIG_FILE="/etc/modalai/voxl-px4.conf"
+print_usage() {
+    echo "Usage: voxl-px4 [-d (daemon mode)] [-h (show help)]"
+    exit 1
+}
+
+reset_config_file() {
+    # create config description section on top of file
+    echo -e "/**\n* voxl-px4 Configuration File\
+    \n*\
+    \n* gps:\
+    \n*     Tell PX4 which GPS to use. \
+    \n*     Options include: [NONE, MATEK, HOLYBRO]\
+    \n*\
+    \n* rc_mode:\
+    \n*     Tell PX4 which RC transmitter to use. \
+    \n*     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, FAKE_RC_INPUT]\
+    \n*\
+    \n* imu_rotation:\
+    \n*     Tell PX4 the IMU direction compared to the airframe. \
+    \n*     Options include: [NONE, ROTATE_IMU_YAW_180]\
+    \n*\
+    \n* osd:\
+    \n*     Tell PX4 whether to enable OSD (on-screen display). \
+    \n*     Options include: [enable, disable]\
+    \n*\
+    \n* daemon_mode:\
+    \n*     Tell PX4 whether to enable daemon mode. \
+    \n*     Options include: [enable, disable]\
+    \n*\
+    \n* sensor_cal_src:\
+    \n*     Tell PX4 where to source sensor calibration information. \
+    \n*     Options include: [ACTUAL, FAKE]\
+    \n*\
+    \n*/" > $CONFIG_FILE
+
+
+    jq -n '{"gps":$gps, "rc_mode":$rc_mode, "imu_rotation":$imu_rotation, "osd":$osd, "daemon_mode":$daemon_mode, "sensor_cal_src":$sensor_cal_src}' \
+    --arg gps NONE \
+    --arg rc_mode SPEKTRUM \
+    --arg imu_rotation NONE \
+    --arg osd disable \
+    --arg daemon_mode enable \
+    --arg sensor_cal_src ACTUAL \
+    >> $CONFIG_FILE
+    exit 0
+}
+
+print_config_settings(){
+    echo -e "\n*************************"
+    echo "GPS MODE: $GPS_SETTING"
+    echo "RC MODE: $RC_SETTING"
+    echo "IMU MODE: $IMU_SETTING"
+    echo "OSD MODE: $OSD_SETTING"
+    echo "DAEMON MODE: $DAEMON_SETTING"
+    echo "SENSOR CAL SRC: $CAL_SETTING"
+    echo -e "*************************\n"
+}
+
+while getopts "ch" flag
+do
+    case "${flag}" in
+        c) 
+            echo "[INFO] Resetting config file to default"
+            reset_config_file
+            ;;
+        h) 
+            print_usage
+            ;;
+        *) 
+            print_usage
+            ;;
+    esac
+done
+
+# read from conf file
+DAEMON_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.daemon_mode')
+GPS_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.gps')
+RC_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.rc_mode')
+IMU_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.imu_rotation')
+OSD_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.osd')
+CAL_SETTING=$(cat $CONFIG_FILE | grep -v '^*' | grep -v '/' | jq -r '.sensor_cal_src')
+
+
+if [ $DAEMON_SETTING == "disable" ]; then
+    DAEMON=" "
+else
+    echo "[INFO] Daemon mode enabled"
+    DAEMON="-d"
+fi
+
+if [ ! -f /data/px4/param/parameters ]; then
+   echo "[INFO] Setting default parameters for PX4 on voxl"
+   px4 $DAEMON -s /etc/modalai/voxl-px4-set-default-parameters.config
+   /bin/sync
+fi
+
+if [ $CAL_SETTING = "FAKE" ]; then
+   /bin/echo "[INFO] Setting up fake sensor calibration values"
+   px4 $DAEMON -s /etc/modalai/voxl-px4-fake-imu-calibration.config
+   /bin/sync
+fi
+
+print_config_settings
+
+px4 $DAEMON -s /usr/bin/px4-start-script
