@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.18
+
+- Updated to latest PX4 mainline
+- Revert "Hacks to allow thermal optical flow to work"
+- Enabled a fourth i2c bus for the spare i2c port on VOXL2
+
 ## 1.14.0-2.0.17
 
 - Merged in hacks for thermal optic flow operation
