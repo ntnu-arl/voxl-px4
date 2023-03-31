@@ -47,13 +47,16 @@ print_usage () {
 	echo "voxl-configure-px4 disable"
 	echo "voxl-configure-px4 enable"
     echo "voxl-configure-px4 factory_enable"
-    echo "voxl-configure-px4 sentinel"
-    echo "voxl-configure-px4 fpv"
+	echo "voxl-configure-px4 d0005_v2"
+	echo "voxl-configure-px4 starling_v2"
+	echo "voxl-configure-px4 d0006_v1"
+    echo "voxl-configure-px4 sentinel_v1"
+    echo "voxl-configure-px4 d0008"
+    echo "voxl-configure-px4 fpv_revB"
 	echo ""
 	echo "show this help message:"
 	echo "voxl-configure-px4 help"
 	echo ""
-	exit 0
 }
 
 ## set most parameters which don't have quotes in json
@@ -163,8 +166,7 @@ case ${arg} in
 		enable_service_and_exit
 		;;
 	*)
-		echo "invalid option"
-		print_usage
+		echo "invalid option: $arg"
 		exit 1
 esac
 
