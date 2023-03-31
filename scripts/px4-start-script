@@ -164,18 +164,24 @@ if [ $PLATFORM = "M0052" ]; then
     fi
 # On M0054 the GPS and RC drivers run on SLPI DSP
 else
-    if [ "$GPS" == "MATEK" ]; then
+    if [ "$GPS_SETTING" == "MATEK" ]; then
         # Use this gps start line instead for Matek Systems M8Q-5883 module
         /bin/echo "Starting Mateksys M8Q-5883 GPS"
         qshell gps start
-    elif [ "$GPS" == "HERE3" ]; then
+    elif [ "$GPS_SETTING" == "HERE3" ]; then
         # Use this line for the Here3 GPS module
         /bin/echo "Starting Here3 GPS"
         qshell gps start
-    else
+    elif [ "$GPS_SETTING" == "HOLYBRO" ]; then
         # Only the newer Holybro unit is supported on M0054
         /bin/echo "Starting Holybro GPS"
         qshell gps start -d 7 -b 115200
+    elif [ "$GPS_SETTING" == "NONE" ]; then
+        # Only the newer Holybro unit is supported on M0054
+        /bin/echo "No GPS specified"
+    else
+        # Only the newer Holybro unit is supported on M0054
+        /bin/echo "Unknown GPS: $GPS_SETTING"
     fi
 
     # If RC is TBS Crossfire then start its driver.

@@ -148,19 +148,19 @@ case ${arg} in
 	"d0005_v2"|"starling_v2")
 		reset_config_file_to_default
 		set_param_string gps MATEK
-		set_param_string rc CRSF_RAW
+		set_param_string rc_mode CRSF_RAW
 		enable_service_and_exit
 		;;
     "d0006_v1"|"sentinel_v1")
 		reset_config_file_to_default
 		set_param_string gps HOLYBRO
-		set_param_string rc SPEKTRUM
+		set_param_string rc_mode SPEKTRUM
 		enable_service_and_exit
         ;;
     "d0008"|"fpv_revB")
 		reset_config_file_to_default
 		set_param_string gps MATEK
-		set_param_string rc CRSF_RAW
+		set_param_string rc_mode CRSF_RAW
 		set_param_string imu_rotation 4
 		set_param_string osd enable
 		enable_service_and_exit
