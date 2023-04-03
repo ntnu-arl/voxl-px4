@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Copyright 2022 ModalAI Inc.
+# Copyright 2023 ModalAI Inc.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -34,8 +34,8 @@
 
 NAME="voxl-px4"
 SERVICE_FILE="${NAME}.service"
+CONFIG_FILE="/etc/modalai/${NAME}.conf"
 USER=$(whoami)
-
 
 print_usage () {
 	echo ""
@@ -46,14 +46,30 @@ print_usage () {
 	echo ""
 	echo "voxl-configure-px4 disable"
 	echo "voxl-configure-px4 enable"
-    echo "voxl-configure-px4 factory_enable"
-    echo "voxl-configure-px4 sentinel"
-    echo "voxl-configure-px4 fpv"
+	echo "voxl-configure-px4 factory_enable"
+	echo "voxl-configure-px4 d0005_v2"
+	echo "voxl-configure-px4 starling_v2"
+	echo "voxl-configure-px4 d0006_v1"
+	echo "voxl-configure-px4 sentinel_v1"
+	echo "voxl-configure-px4 d0008"
+	echo "voxl-configure-px4 fpv_revB"
 	echo ""
 	echo "show this help message:"
 	echo "voxl-configure-px4 help"
 	echo ""
-	exit 0
+}
+
+## set most parameters which don't have quotes in json
+set_param () {
+	if [ "$#" != "2" ]; then
+		echo "set_param expected 2 args"
+		exit 1
+	fi
+
+	var=$1
+	val=$2
+	
+	sed -i "/$var=/c $var=$val" ${CONFIG_FILE}
 }
 
 disable_service_and_exit () {
@@ -72,6 +88,53 @@ enable_service_and_exit () {
 	systemctl restart  ${SERVICE_FILE}
 	echo "Done configuring ${NAME}"
 	exit 0
+}
+
+reset_config_file_to_default () {
+	echo "wiping old config file"
+	rm -rf ${CONFIG_FILE}
+
+	# create config description section on top of file
+    echo -e "#!/bin/bash\n#\n# voxl-px4 Configuration File\
+    \n#\
+    \n# GPS:\
+    \n#     Tell PX4 which GPS to use. \
+    \n#     Options include: [NONE, MATEK, HOLYBRO]\
+    \n#\
+    \n# RC:\
+    \n#     Tell PX4 which RC transmitter to use. \
+    \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, FAKE_RC_INPUT]\
+    \n#\
+    \n# IMU_ROTATION:\
+    \n#     Tell PX4 the IMU direction compared to the airframe. \
+    \n#     Options include: [NONE, ROTATE_IMU_YAW_180]\
+    \n#\
+    \n# OSD:\
+    \n#     Tell PX4 whether to enable OSD (on-screen display). \
+    \n#     Options include: [ENABLE, DISABLE]\
+    \n#\
+    \n# DAEMON_MODE:\
+    \n#     Tell PX4 whether to enable daemon mode. \
+    \n#     Options include: [ENABLE, DISABLE]\
+    \n#\
+    \n# SENSOR_CAL:\
+    \n#     Tell PX4 where to source sensor calibration information. \
+    \n#     Options include: [ACTUAL, FAKE]\
+    \n#\
+    \n# EXTRA_STEPS:\
+    \n#     Optional field that allows a user to define custom commands to be run by PX4 on boot. \
+    \n#     Must be a valid bash array as seen below \
+    \n#     Example: EXTRA_STEPS=( \"qshell gps start\" \"qshell commander mode manual\" ) \
+    \n#\
+    \n#" > $CONFIG_FILE
+
+    echo "GPS=NONE" >> $CONFIG_FILE
+    echo "RC=SPEKTRUM" >> $CONFIG_FILE
+    echo "IMU_ROTATION=NONE" >> $CONFIG_FILE
+    echo "OSD=DISABLE" >> $CONFIG_FILE
+    echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
+    echo "SENSOR_CAL=ACTUAL" >> $CONFIG_FILE
+    echo "EXTRA_STEPS=()" >> $CONFIG_FILE
 }
 
 ################################################################################
@@ -102,36 +165,55 @@ case ${arg} in
 	"enable")
 		enable_service_and_exit
 		;;
-    "factory_enable")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+	"factory_enable")
+		reset_config_file_to_default
 		enable_service_and_exit
 		;;
-    "d0006")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
-		enable_service_and_exit
-        ;;
-    "sentinel")
-        cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+	"d0005_v2"|"starling_v2")
+		reset_config_file_to_default
+		set_param GPS MATEK
+		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
-    "d0008")
-        cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+	"d0006_v1"|"sentinel_v1")
+		reset_config_file_to_default
+		set_param GPS HOLYBRO
+		set_param RC SPEKTRUM
 		enable_service_and_exit
 		;;
-    "fpv")
-        cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-        systemctl daemon-reload
+	"d0008"|"fpv_revb")
+		reset_config_file_to_default
+		set_param GPS MATEK
+		set_param RC CRSF_RAW
+		set_param IMU_ROTATION 4
+		set_param OSD ENABLE
 		enable_service_and_exit
 		;;
 	*)
-		echo "invalid option"
-		print_usage
+		echo "invalid option: $arg"
 		exit 1
 esac
+
+################################################################################
+## no optional arguments, start config wizard prompts
+################################################################################
+
+echo " "
+echo "Do you want to reset the config file to factory defaults?"
+select opt in "yes" "no"; do
+case $opt in
+yes )
+	reset_config_file_to_default
+	break;;
+no )
+	echo "loading and updating config file with ${NAME} -c"
+	${NAME} -c
+	break;;
+*)
+	echo "invalid option"
+	esac
+done
+
 
 echo " "
 echo "Which configuration of voxl-px4 would you like to use?"
@@ -143,16 +225,10 @@ echo ""
 select opt in "factory_enable" "sentinel" "fpv"; do
 case $opt in
 factory_enable )
-    cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 sentinel )
-	cp /etc/voxl-px4.service /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 fpv )
-	cp /etc/voxl-px4.service-fpv /etc/systemd/system/voxl-px4.service
-    systemctl daemon-reload
 	break;;
 *)
 	echo "invalid option"

@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.19
+
+- Changed the startup scripts. voxl-px4 now uses /usr/bin/voxl-px4-start instead
+  of /etc/modalai/voxl-px4.config. There is also support for an optional configuration
+  file that can be created by scripts/voxl-configure-px4
+
 ## 1.14.0-2.0.18
 
 - Updated to latest PX4 mainline
