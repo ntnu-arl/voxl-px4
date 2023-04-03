@@ -5,7 +5,7 @@ Requires=sscrpcd.service
 
 [Service]
 ExecStartPre=/bin/sleep 2
-ExecStart=/bin/bash -c "PATH=/usr/bin voxl-px4 -d"
+ExecStart=/usr/bin/voxl-px4
 
 [Install]
 WantedBy=multi-user.target

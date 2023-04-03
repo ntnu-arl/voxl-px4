@@ -102,6 +102,12 @@ ln -f -s px4 px4-uart_esc_driver
 ln -f -s px4 px4-flight_mode_manager
 ln -f -s px4 px4-imu_server
 
+# cleanup old files
+OLD_CONF_FILE=/etc/modalai/voxl-px4.config
+if [ -f "$OLD_CONF_FILE" ]; then
+    rm /etc/modalai/$OLD_CONF_FILE
+fi
+
 # Create directories for px4 module use
 mkdir -p /data/px4/param
 
