@@ -107,7 +107,8 @@ reset_config_file_to_default () {
     \n#\
     \n# IMU_ROTATION:\
     \n#     Tell PX4 the IMU direction compared to the airframe. \
-    \n#     Options include: [NONE, ROTATE_IMU_YAW_180]\
+    \n#     Options include: [NONE, 0, 4, 12, etc.] (passed to icm42688p driver)\
+    \n#     e.g. ROTATION_YAW_180 = 4\
     \n#\
     \n# OSD:\
     \n#     Tell PX4 whether to enable OSD (on-screen display). \
