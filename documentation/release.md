@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.20
+
+- Updated to 1.14.0-2.0.20 firmware
+- Changed package numbering to match px4 firmware version
+
 ## 1.14.0-2.0.19
 
 - Changed the startup scripts. voxl-px4 now uses /usr/bin/voxl-px4-start instead
