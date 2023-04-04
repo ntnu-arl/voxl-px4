@@ -1,5 +1,6 @@
-1.14.0
-    * First version based on PX4 mainline
+2.0.20
+    * many many changes
+    * new /etc/modalai/voxl-px4.conf config file
 1.12.34
     * Add System ID feature
 1.12.33

@@ -39,10 +39,9 @@ USER=$(whoami)
 
 print_usage () {
 	echo ""
-	echo "Start wizard with prompts:"
-	echo "voxl-configure-px4"
+	echo "Config script for voxl-px4"
+	echo "wizard coming soon. For now, call with one of the following args:"
 	echo ""
-	echo "Shortcut configuration arguments for scripted setup."
 	echo ""
 	echo "voxl-configure-px4 disable"
 	echo "voxl-configure-px4 enable"
@@ -84,8 +83,6 @@ disable_service_and_exit () {
 enable_service_and_exit () {
 	echo "enabling  ${NAME} systemd service"
 	systemctl enable  ${SERVICE_FILE}
-	echo "starting  ${NAME} systemd service"
-	systemctl restart  ${SERVICE_FILE}
 	echo "Done configuring ${NAME}"
 	exit 0
 }
@@ -154,7 +151,9 @@ arg=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 ## parse arguments
 case ${arg} in
 	"")
-		echo "Starting Wizard"
+		echo "ERROR no argument given"
+		print_usage
+		exit 1
 		;;
 	"h"|"-h"|"help"|"--help")
 		print_usage
@@ -195,64 +194,5 @@ case ${arg} in
 		exit 1
 esac
 
-################################################################################
-## no optional arguments, start config wizard prompts
-################################################################################
-
-echo " "
-echo "Do you want to reset the config file to factory defaults?"
-select opt in "yes" "no"; do
-case $opt in
-yes )
-	reset_config_file_to_default
-	break;;
-no )
-	echo "loading and updating config file with ${NAME} -c"
-	${NAME} -c
-	break;;
-*)
-	echo "invalid option"
-	esac
-done
-
-
-echo " "
-echo "Which configuration of voxl-px4 would you like to use?"
-echo ""
-echo "factory_enable         use default factory settings"
-echo "sentinel               use settings for Sentinel"
-echo "fpv                    use settings for FPV"
-echo ""
-select opt in "factory_enable" "sentinel" "fpv"; do
-case $opt in
-factory_enable )
-	break;;
-sentinel )
-	break;;
-fpv )
-	break;;
-*)
-	echo "invalid option"
-	esac
-done
-
-# ask if the user wants the service enabled or not
-echo " "
-echo "Do you want to enable the voxl-px4 service to be"
-echo "enabled on boot?"
-select opt in "yes" "no"; do
-case $opt in
-yes )
-	echo " "
-	enable_service_and_exit
-	break;;
-no )
-	disable_service_and_exit
-	break;;
-*)
-	echo "invalid option"
-	esac
-done
-
-# all done!
-enable_service_and_exit
+## should never get here
+exit 1
