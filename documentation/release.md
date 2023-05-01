@@ -23,6 +23,14 @@
 
 # Releases
 
+## 1.14.0-2.0.22
+
+- Updated to 1.14.0-2.0.22 firmware
+- Remove hardcoded GPS UART baudrate
+- Flight mode manager module moved to SLPI side
+- Fixes for remote topic subscription process
+- Added a second Mavlink instance to differentiate QGC and onboard traffic
+
 ## 1.14.0-2.0.20
 
 - Updated to 1.14.0-2.0.20 firmware
