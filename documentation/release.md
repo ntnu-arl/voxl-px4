@@ -23,6 +23,13 @@
 
 # Releases
 
+## 1.14.0-2.0.24
+
+- Updated to 1.14.0-2.0.24 firmware
+- Updated to PX4 mainline as of May 1
+- Modal IO added support for M0129 battery status
+- Added MODALAI_CONFIG param to isolate non-mainline features
+
 ## 1.14.0-2.0.22
 
 - Updated to 1.14.0-2.0.22 firmware
