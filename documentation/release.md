@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.25
+
+- Updated to 1.14.0-2.0.25 firmware
+- Add support for RB5 IMU server
+- Add support for RB5 GPS / RC
+
 ## 1.14.0-2.0.24
 
 - Updated to 1.14.0-2.0.24 firmware
