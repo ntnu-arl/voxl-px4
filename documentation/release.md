@@ -23,6 +23,13 @@
 
 # Releases
 
+## 1.14.0-2.0.26
+
+- Updated to 1.14.0-2.0.26 firmware
+- voxlpm doesn't send any battery status reports unless device probe succeeds
+- modal_io battery status moved to Battery class
+- modal_io battery reports throttled to 100ms interval
+
 ## 1.14.0-2.0.25
 
 - Updated to 1.14.0-2.0.25 firmware
