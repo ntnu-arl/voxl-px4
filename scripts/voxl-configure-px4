@@ -102,11 +102,6 @@ reset_config_file_to_default () {
     \n#     Tell PX4 which RC transmitter to use. \
     \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, FAKE_RC_INPUT]\
     \n#\
-    \n# IMU_ROTATION:\
-    \n#     Tell PX4 the IMU direction compared to the airframe. \
-    \n#     Options include: [NONE, 0, 4, 12, etc.] (passed to icm42688p driver)\
-    \n#     e.g. ROTATION_YAW_180 = 4\
-    \n#\
     \n# OSD:\
     \n#     Tell PX4 whether to enable OSD (on-screen display). \
     \n#     Options include: [ENABLE, DISABLE]\
@@ -128,7 +123,6 @@ reset_config_file_to_default () {
 
     echo "GPS=NONE" >> $CONFIG_FILE
     echo "RC=SPEKTRUM" >> $CONFIG_FILE
-    echo "IMU_ROTATION=NONE" >> $CONFIG_FILE
     echo "OSD=DISABLE" >> $CONFIG_FILE
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
     echo "SENSOR_CAL=ACTUAL" >> $CONFIG_FILE
@@ -185,7 +179,6 @@ case ${arg} in
 		reset_config_file_to_default
 		set_param GPS MATEK
 		set_param RC CRSF_RAW
-		set_param IMU_ROTATION 4
 		set_param OSD ENABLE
 		enable_service_and_exit
 		;;

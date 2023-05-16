@@ -23,6 +23,13 @@
 
 # Releases
 
+## 1.14.0-2.0.27
+
+- Updated to 1.14.0-2.0.27 firmware
+- Change default for SENS_IMU_AUTOCAL to be disabled
+- Removed IMU rotation as a configuration item during startup. It is set by
+  determining board type and by SENS_BOARD_ROT parameter now
+
 ## 1.14.0-2.0.26
 
 - Updated to 1.14.0-2.0.26 firmware
