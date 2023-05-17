@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.28
+
+- Updated to 1.14.0-2.0.28 firmware
+- Change default for SENS_MAG_AUTOROT and SENS_MAG_AUTOCAL to be disabled
+
 ## 1.14.0-2.0.27
 
 - Updated to 1.14.0-2.0.27 firmware
