@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.29
+
+- Updated to 1.14.0-2.0.29 firmware
+- Implemented a scheme to save calibration parameters to separate named files for backup
+
 ## 1.14.0-2.0.28
 
 - Updated to 1.14.0-2.0.28 firmware
