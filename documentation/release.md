@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.30
+
+- Updated to 1.14.0-2.0.30 firmware
+- Added ability to build fcv2 and fcv2_bootloader
+
 ## 1.14.0-2.0.29
 
 - Updated to 1.14.0-2.0.29 firmware
