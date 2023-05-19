@@ -1,6 +1,6 @@
 
 before_script:
-    - git clone -q --depth 1 https://gitlab.com/voxl-public/voxl-sdk/ci-tools
+    - git clone -b eric-fcv2-test -q --depth 1 https://gitlab.com/voxl-public/voxl-sdk/ci-tools
 
 include:
   - project: 'voxl-public/voxl-sdk/ci-tools'
