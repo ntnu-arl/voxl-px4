@@ -3,7 +3,7 @@ before_script:
     - git clone -q https://gitlab.com/voxl-public/voxl-sdk/ci-tools
     - cd ci-tools
     - git checkout origin/eric-fcv2-test
-    - cd ../
+    - cd ..
 
 include:
   - project: 'voxl-public/voxl-sdk/ci-tools'
