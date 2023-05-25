@@ -3,6 +3,7 @@
 # Clean out the build artifacts
 source /home/build-env.sh
 cd px4-firmware
+sudo rm -rf build
 make clean
 cd -
 

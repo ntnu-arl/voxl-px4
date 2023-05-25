@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.31
+
+- Updated to 1.14.0-2.0.31 firmware
+- Merged in fcv2 board specific changes and modalai systemcmd
+- Added scripts to build fcv1, fcv2 and fcv2_bootloader
+
 ## 1.14.0-2.0.30
 
 - Updated to 1.14.0-2.0.30 firmware
