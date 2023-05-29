@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.32
+
+- Updated to 1.14.0-2.0.32 firmware
+- Added arming check for missing Open Drone ID
+
 ## 1.14.0-2.0.31
 
 - Updated to 1.14.0-2.0.31 firmware
