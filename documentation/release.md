@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.33
+
+- Updated to 1.14.0-2.0.33 firmware
+- Disabled arming check for missing Open Drone ID by default
+- Fixed GPS UTC time reporting from DSP based GPS driver
+
 ## 1.14.0-2.0.32
 
 - Updated to 1.14.0-2.0.32 firmware
