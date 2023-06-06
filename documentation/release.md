@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.34
+
+- Updated to 1.14.0-2.0.34 firmware
+- Fixed delayed flight mode transitions in outgoing mavlink heartbeat messages
+
 ## 1.14.0-2.0.33
 
 - Updated to 1.14.0-2.0.33 firmware
