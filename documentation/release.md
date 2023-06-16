@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.35
+
+- Updated to 1.14.0-2.0.35 firmware
+- Fixed offboard flight mode transition
+
 ## 1.14.0-2.0.34
 
 - Updated to 1.14.0-2.0.34 firmware
