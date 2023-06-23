@@ -1,9 +1,9 @@
 Package: voxl-px4
-Version: 1.14.0-2.0.35
+Version: 1.14.0-2.0.36
 Section: devel
 Priority: optional
 Architecture: arm64
-Depends: libfc-sensor, voxl2-system-image(>=1.5.4)
+Depends: libfc-sensor, voxl2-system-image(>=1.5.4) | rb5-system-image(>=1.6.2)
 Replaces: px4-rb5-flight
 Conflicts: px4-rb5-flight
 Maintainer: Eric Katzfey <eric.katzfey@modalai.com>

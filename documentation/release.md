@@ -23,6 +23,12 @@
 
 # Releases
 
+## 1.14.0-2.0.36
+
+- Updated to 1.14.0-2.0.36 firmware
+- Reverted: "Fixed offboard flight mode transition" because it didn't really work
+- Added install dependency on rb5-system-image OR voxl2-system-image
+
 ## 1.14.0-2.0.35
 
 - Updated to 1.14.0-2.0.35 firmware
