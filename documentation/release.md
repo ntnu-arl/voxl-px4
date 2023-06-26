@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.37
+
+- Updated to 1.14.0-2.0.37 firmware
+- Changed amps in voxlpm to signed int to account for reverse current
+
 ## 1.14.0-2.0.36
 
 - Updated to 1.14.0-2.0.36 firmware
