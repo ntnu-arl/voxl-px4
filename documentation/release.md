@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.38
+
+- Updated to 1.14.0-2.0.38 firmware
+- Added parameters to control timeouts on external vision measurements
+
 ## 1.14.0-2.0.37
 
 - Updated to 1.14.0-2.0.37 firmware
