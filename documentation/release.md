@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.39
+
+- Updated to 1.14.0-2.0.39 firmware
+- Fixes to the GPS devices submodule to help with reliable M10 UBX startup
+
 ## 1.14.0-2.0.38
 
 - Updated to 1.14.0-2.0.38 firmware
