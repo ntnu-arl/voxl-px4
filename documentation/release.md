@@ -23,6 +23,10 @@
 
 # Releases
 
+## 1.14.0-2.0.41
+
+- Updated to 1.14.0-2.0.41 firmware
+
 ## 1.14.0-2.0.40
 
 - Updated to 1.14.0-2.0.40 firmware
