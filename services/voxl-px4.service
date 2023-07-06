@@ -6,6 +6,7 @@ Requires=sscrpcd.service
 [Service]
 ExecStartPre=/bin/sleep 2
 ExecStart=/usr/bin/voxl-px4
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
