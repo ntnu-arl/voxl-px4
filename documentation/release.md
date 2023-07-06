@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.40
+
+- Updated to 1.14.0-2.0.40 firmware
+- Added restart on fail to voxl-px4 service file
+
 ## 1.14.0-2.0.39
 
 - Updated to 1.14.0-2.0.39 firmware
