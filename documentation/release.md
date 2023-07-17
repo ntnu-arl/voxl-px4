@@ -23,9 +23,16 @@
 
 # Releases
 
+
+## 1.14.0-2.0.42
+
+- Updated to 1.14.0-2.0.41 firmware
+- Changes default commander mode to manual
+
 ## 1.14.0-2.0.41
 
 - Updated to 1.14.0-2.0.41 firmware
+- Fixes SITL
 
 ## 1.14.0-2.0.40
 

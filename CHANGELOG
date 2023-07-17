@@ -1,3 +1,57 @@
+1.14.0-2.0.42
+    * Changes default commander mode to manual
+    * Fixes SITL
+1.14.0-2.0.41
+    * ESC status logging rate increased to 200Hz
+1.14.0-2.0.40
+    * Added restart on fail to voxl-px4 service file
+1.14.0-2.0.39
+    * Fixes to the GPS devices submodule to help with reliable M10 UBX startup
+1.14.0-2.0.38
+    * Added parameters to control timeouts on external vision measurements
+1.14.0-2.0.37
+    * Changed amps in voxlpm to signed int to account for reverse current
+1.14.0-2.0.36
+    * Reverted: "Fixed offboard flight mode transition" because it didn't really work
+    * Added install dependency on rb5-system-image OR voxl2-system-image
+1.14.0-2.0.35
+    * Fixed offboard flight mode transition
+1.14.0-2.0.34
+    * Fixed delayed flight mode transitions in outgoing mavlink heartbeat messages
+1.14.0-2.0.33
+    * Disabled arming check for missing Open Drone ID by default
+    * Fixed GPS UTC time reporting from DSP based GPS driver
+1.14.0-2.0.32
+    * Added arming check for missing Open Drone ID
+1.14.0-2.0.31
+    * Merged in fcv2 board specific changes and modalai systemcmd
+    * Added scripts to build fcv1, fcv2 and fcv2_bootloader
+1.14.0-2.0.30
+    * Added ability to build fcv2 and fcv2_bootloader
+1.14.0-2.0.29
+    * Implemented a scheme to save calibration parameters to separate named files for backup
+1.14.0-2.0.28
+    * Change default for SENS_MAG_AUTOROT and SENS_MAG_AUTOCAL to be disabled
+1.14.0-2.0.27
+    * Change default for SENS_IMU_AUTOCAL to be disabled
+    * Removed IMU rotation as a configuration item during startup. It is set by
+  determining board type and by SENS_BOARD_ROT parameter now
+1.14.0-2.0.26
+    * voxlpm doesn't send any battery status reports unless device probe succeeds
+    * modal_io battery status moved to Battery class
+    * modal_io battery reports throttled to 100ms interval
+1.14.0-2.0.25
+    * Add support for RB5 IMU server
+    * Add support for RB5 GPS / RC
+1.14.0-2.0.24
+    * Updated to PX4 mainline as of May 1
+    * Modal IO added support for M0129 battery status
+    * Added MODALAI_CONFIG param to isolate non-mainline features
+1.14.0-2.0.22
+    * Remove hardcoded GPS UART baudrate
+    * Flight mode manager module moved to SLPI side
+    * Fixes for remote topic subscription process
+    * Added a second Mavlink instance to differentiate QGC and onboard traffic
 2.0.20
     * many many changes
     * new /etc/modalai/voxl-px4.conf config file
