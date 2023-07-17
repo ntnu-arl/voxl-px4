@@ -9,7 +9,7 @@
     - Type: dev, alpha<number>, beta<number>, rc<number>
 
 - On dev branch
-- Add release notes to this document
+- Add release notes to this document and CHANGELOG
 - Bump package version number in debian/control
 - ./clean.sh (in Docker)
 - ./build.sh (in Docker)
