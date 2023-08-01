@@ -23,6 +23,13 @@
 
 # Releases
 
+## 1.14.0-2.0.43
+
+- Updated to 1.14.0-2.0.43 firmware
+- Add HITL
+- Add param to control publishing of battery_status from mini esc
+- Update logic to only process most recent update in manual_control module
+- Add ist8308 magnetometer driver to SLPI build
 
 ## 1.14.0-2.0.42
 
