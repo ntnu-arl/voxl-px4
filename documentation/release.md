@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.45
+
+- Updated to 1.14.0-2.0.45 firmware
+- add MC_THR_CURVE_ACR to specify throttle curve behavior in Acro mode
+
 ## 1.14.0-2.0.44
 
 - Updated to 1.14.0-2.0.44 firmware
