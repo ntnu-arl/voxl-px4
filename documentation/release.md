@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.44
+
+- Updated to 1.14.0-2.0.44 firmware
+- Add M0065 SBUS support with new dsp_sbus driver
+
 ## 1.14.0-2.0.43
 
 - Updated to 1.14.0-2.0.43 firmware

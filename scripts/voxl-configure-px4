@@ -100,7 +100,8 @@ reset_config_file_to_default () {
     \n#\
     \n# RC:\
     \n#     Tell PX4 which RC transmitter to use. \
-    \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, FAKE_RC_INPUT]\
+    \n#     Use EXTERNAL when getting RC control from external Mavlink messages (e.g Via QGC)
+    \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, M0065_SBUS, EXTERNAL, FAKE_RC_INPUT]\
     \n#\
     \n# OSD:\
     \n#     Tell PX4 whether to enable OSD (on-screen display). \
