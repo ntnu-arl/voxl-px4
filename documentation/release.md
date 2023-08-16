@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.46
+
+- Updated to 1.14.0-2.0.46 firmware
+- Added support for the Lightware SF000 distance laser sensor
+
 ## 1.14.0-2.0.45
 
 - Updated to 1.14.0-2.0.45 firmware

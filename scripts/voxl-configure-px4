@@ -103,6 +103,12 @@ reset_config_file_to_default () {
     \n#     Use EXTERNAL when getting RC control from external Mavlink messages (e.g Via QGC)
     \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, M0065_SBUS, EXTERNAL, FAKE_RC_INPUT]\
     \n#\
+    \n# DISTANCE_SENSOR:\
+    \n#     Tell PX4 which distance sensor peripheral to use. \
+	\n#     Note: The sensor will be started on the RC port so it is only
+	\n#           really possible to use it when using external RC.
+    \n#     Options include: [NONE, LIGHTWARE_SF000]\
+    \n#\
     \n# OSD:\
     \n#     Tell PX4 whether to enable OSD (on-screen display). \
     \n#     Options include: [ENABLE, DISABLE]\
@@ -124,6 +130,7 @@ reset_config_file_to_default () {
 
     echo "GPS=NONE" >> $CONFIG_FILE
     echo "RC=SPEKTRUM" >> $CONFIG_FILE
+    echo "DISTANCE_SENSOR=NONE" >> $CONFIG_FILE
     echo "OSD=DISABLE" >> $CONFIG_FILE
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
     echo "SENSOR_CAL=ACTUAL" >> $CONFIG_FILE
