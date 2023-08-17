@@ -96,7 +96,7 @@ reset_config_file_to_default () {
     \n#\
     \n# GPS:\
     \n#     Tell PX4 which GPS to use. \
-    \n#     Options include: [NONE, MATEK, HOLYBRO]\
+    \n#     Options include: [NONE, MATEK, MRO_CUSTOM, HOLYBRO]\
     \n#\
     \n# RC:\
     \n#     Tell PX4 which RC transmitter to use. \

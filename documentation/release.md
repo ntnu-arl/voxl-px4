@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.47
+
+- Updated to 1.14.0-2.0.47 firmware
+- Added new configuration option for mRo GPS unit
+
 ## 1.14.0-2.0.46
 
 - Updated to 1.14.0-2.0.46 firmware
