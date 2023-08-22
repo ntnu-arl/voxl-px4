@@ -1,4 +1,6 @@
-## 1.14.0-2.0.47
+1.14.0-2.0.48
+    * Updated the rate for onboard consumers of the SCALED_PRESSURE Mavlink message
+1.14.0-2.0.47
     * Added new configuration option for mRo GPS unit
 1.14.0-2.0.46
     * Added support for the Lightware SF000 distance laser sensor

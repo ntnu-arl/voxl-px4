@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.48
+
+- Updated to 1.14.0-2.0.48 firmware
+- Updated the rate for onboard consumers of the SCALED_PRESSURE Mavlink message
+
 ## 1.14.0-2.0.47
 
 - Updated to 1.14.0-2.0.47 firmware
