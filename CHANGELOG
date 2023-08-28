@@ -1,3 +1,5 @@
+1.14.0-2.0.49
+    * Added new elrs_led driver to allow setting LED based on button presses coming from ground control station
 1.14.0-2.0.48
     * Updated the rate for onboard consumers of the SCALED_PRESSURE Mavlink message
 1.14.0-2.0.47

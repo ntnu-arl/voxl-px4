@@ -23,6 +23,11 @@
 
 # Releases
 
+## 1.14.0-2.0.49
+
+- Updated to 1.14.0-2.0.49 firmware
+- Added new elrs_led driver to allow setting LED based on button presses coming from ground control station
+
 ## 1.14.0-2.0.48
 
 - Updated to 1.14.0-2.0.48 firmware
