@@ -56,6 +56,8 @@ print_usage () {
 	echo "show this help message:"
 	echo "voxl-configure-px4 help"
 	echo ""
+	echo "Use voxl-configure-px4 factory_enable to configure default values"
+
 }
 
 ## set most parameters which don't have quotes in json
@@ -96,17 +98,22 @@ reset_config_file_to_default () {
     \n#\
     \n# GPS:\
     \n#     Tell PX4 which GPS to use. \
-    \n#     Options include: [NONE, MATEK, MRO_CUSTOM, HOLYBRO]\
+    \n#     Options include: [NONE, MATEK, MRO_M10136A, HOLYBRO]\
     \n#\
     \n# RC:\
     \n#     Tell PX4 which RC transmitter to use. \
-    \n#     Use EXTERNAL when getting RC control from external Mavlink messages (e.g Via QGC)
+    \n#     Use EXTERNAL when getting RC control from external Mavlink messages (e.g Via QGC)\
     \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, M0065_SBUS, EXTERNAL, FAKE_RC_INPUT]\
+    \n#\
+    \n# POWER_MANAGER:\
+    \n#     Tell PX4 which power manager to use. \
+    \n#     Use EXTERNAL when not using the ModalAI APM power manager to power the board\
+    \n#     Options include: [VOXLPM, EXTERNAL]\
     \n#\
     \n# DISTANCE_SENSOR:\
     \n#     Tell PX4 which distance sensor peripheral to use. \
-	\n#     Note: The sensor will be started on the RC port so it is only
-	\n#           really possible to use it when using external RC.
+	\n#     Note: The sensor will be started on the RC port so it is only\
+	\n#           really possible to use it when using external RC.\
     \n#     Options include: [NONE, LIGHTWARE_SF000]\
     \n#\
     \n# OSD:\
@@ -130,6 +137,7 @@ reset_config_file_to_default () {
 
     echo "GPS=NONE" >> $CONFIG_FILE
     echo "RC=SPEKTRUM" >> $CONFIG_FILE
+	echo "POWER_MANAGER=VOXLPM" >> $CONFIG_FILE
     echo "DISTANCE_SENSOR=NONE" >> $CONFIG_FILE
     echo "OSD=DISABLE" >> $CONFIG_FILE
     echo "DAEMON_MODE=ENABLE" >> $CONFIG_FILE
@@ -173,7 +181,7 @@ case ${arg} in
 		;;
 	"d0005_v2"|"starling_v2")
 		reset_config_file_to_default
-		set_param GPS MATEK
+		set_param GPS MRO_M10136A
 		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
