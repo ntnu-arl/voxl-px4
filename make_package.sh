@@ -130,14 +130,19 @@ if [ -f px4-firmware/build/modalai_voxl2-slpi_default/platforms/qurt/libpx4.so ]
 	sudo cp px4-firmware/build/modalai_voxl2_default/bin/px4-alias.sh $DATA_DIR/usr/bin
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4 $DATA_DIR/usr/bin
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-start $DATA_DIR/usr/bin
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-hitl $DATA_DIR/usr/bin
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-hitl-start $DATA_DIR/usr/bin
 	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4
 	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-start
+	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-hitl
+	sudo chmod a+x $DATA_DIR/usr/bin/voxl-px4-hitl-start
 	sudo chmod a+x $DATA_DIR/usr/bin/px4-alias.sh
 
 	# Install startup configuration files
 	sudo mkdir -p $DATA_DIR/etc/modalai/
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-fake-imu-calibration.config $DATA_DIR/etc/modalai
 	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-set-default-parameters.config $DATA_DIR/etc/modalai
+	sudo cp px4-firmware/boards/modalai/voxl2/target/voxl-px4-hitl-set-default-parameters.config $DATA_DIR/etc/modalai
 	sudo chmod +x $DATA_DIR/etc/modalai/*.config
 
 	# Include required compressed metadata from build
