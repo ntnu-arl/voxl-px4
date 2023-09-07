@@ -9,7 +9,8 @@
     - Type: dev, alpha<number>, beta<number>, rc<number>
 
 - On dev branch
-- Add release notes to this document and CHANGELOG
+- Add release notes to this document
+- Add release notes to the CHANGELOG
 - Bump package version number in debian/control
 - ./clean.sh (in Docker)
 - ./build.sh (in Docker)
@@ -22,6 +23,11 @@
 - post package to cloud bucket
 
 # Releases
+
+## 1.14.0-2.0.50
+
+- Updated to 1.14.0-2.0.50 firmware
+- Updated the voxl-configure-px4 script to reflect new options in the firmware
 
 ## 1.14.0-2.0.49
 
