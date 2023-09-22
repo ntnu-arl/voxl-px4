@@ -1,3 +1,5 @@
+1.14.0-2.0.51
+    * Add rc_input to postinst for M0052 target
 1.14.0-2.0.50
     * Removed 6 extra 1 second sleeps in the start sequence to make it faster
     * Changed some configuration items for startup for mRo GPS, and power manager
