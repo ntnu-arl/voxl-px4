@@ -24,6 +24,18 @@
 
 # Releases
 
+## 1.14.0-2.0.52
+
+- Add modal_io_bridge to postinst
+- Add daemon restart attempt to postinst
+- Compensate for queueing delays in GPS and RC input
+- Add modal_io_bridge to allow raw UART commands to be passed to modal_io endpoints
+
+## 1.14.0-2.0.51
+
+- Reduce mavlink barometer updates from 20Hz to 10Hz
+- Add onboard mavlink stream to HITL start file for MAVSDK interface
+
 ## 1.14.0-2.0.50
 
 - Updated to 1.14.0-2.0.50 firmware

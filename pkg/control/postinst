@@ -48,6 +48,7 @@ ln -f -s px4 px4-mc_att_control
 ln -f -s px4 px4-mc_pos_control
 ln -f -s px4 px4-measairspeedsim
 ln -f -s px4 px4-mixer
+ln -f -s px4 px4-modal_io_bridge
 ln -f -s px4 px4-motor_ramp
 ln -f -s px4 px4-modalai_gps_timer
 ln -f -s px4 px4-ms4525_airspeed
@@ -135,3 +136,12 @@ fi
 /bin/sync
 
 cd -
+
+# try to reload services, but don't fail if it can't
+set +e
+if [ -f /bin/systemctl ]; then
+	systemctl daemon-reload
+fi
+​
+# exit 0 even if systemctl failed
+exit 0
