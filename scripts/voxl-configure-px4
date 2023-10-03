@@ -52,6 +52,10 @@ print_usage () {
 	echo "voxl-configure-px4 sentinel_v1"
 	echo "voxl-configure-px4 d0008"
 	echo "voxl-configure-px4 fpv_revB"
+	echo "voxl-configure-px4 d0010"
+	echo "voxl-configure-px4 d0011"
+	echo "voxl-configure-px4 d0013"
+	echo "voxl-configure-px4 voxl2-mini"
 	echo ""
 	echo "show this help message:"
 	echo "voxl-configure-px4 help"
@@ -107,8 +111,10 @@ reset_config_file_to_default () {
     \n#\
     \n# POWER_MANAGER:\
     \n#     Tell PX4 which power manager to use. \
+    \n#     Use NONE for ModalAI Mini-ESC since the ESC driver handles PM.\
     \n#     Use EXTERNAL when not using the ModalAI APM power manager to power the board\
-    \n#     Options include: [VOXLPM, EXTERNAL]\
+    \n#       This also just disables the voxlpm driver, same as the NONE option\
+    \n#     Options include: [VOXLPM, EXTERNAL, NONE]\
     \n#\
     \n# DISTANCE_SENSOR:\
     \n#     Tell PX4 which distance sensor peripheral to use. \
@@ -186,9 +192,17 @@ case ${arg} in
 		enable_service_and_exit
 		;;
 	"d0006_v1"|"sentinel_v1")
+		## First revision Sentinel with Holybro GPS and Spektrum Radio
 		reset_config_file_to_default
 		set_param GPS HOLYBRO
 		set_param RC SPEKTRUM
+		enable_service_and_exit
+		;;
+	"d0006_v2"|"sentinel_v2")
+		## Second revision Sentinel with MRO GPS and ELRS radio
+		reset_config_file_to_default
+		set_param GPS MRO_M10136A
+		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
 	"d0008"|"fpv_revb")
@@ -196,6 +210,21 @@ case ${arg} in
 		set_param GPS MATEK
 		set_param RC CRSF_RAW
 		set_param OSD ENABLE
+		enable_service_and_exit
+		;;
+	"d0010")
+		## Starling with no GPS
+		reset_config_file_to_default
+		set_param GPS NONE
+		set_param RC CRSF_RAW
+		enable_service_and_exit
+		;;
+	"d0011"|"d0013"|"voxl2-mini")
+		## voxl2-mini setup, or voxl2 with mini esc
+		reset_config_file_to_default
+		set_param GPS MRO_M10136A
+		set_param RC CRSF_RAW
+		set_param POWER_MANAGER NONE
 		enable_service_and_exit
 		;;
 	*)

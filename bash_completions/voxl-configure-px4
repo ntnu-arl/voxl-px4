@@ -1,5 +1,5 @@
 _voxl-configure-px4(){
-	local OPTS=('help enable disable factory_enable starling_v2 sentinel_v1 fpv_revB d0005_v2 d0006_v1 d0008')
+	local OPTS=('help enable disable factory_enable starling_v2 sentinel_v1 fpv_revB d0005_v2 d0006_v1 d0006_v2 sentinel_v2 d0008 d0010 d0011 d0013 voxl2-mini')
 	COMPREPLY=()
 	if [ "$COMP_CWORD" -eq 1 ]; then
 		COMPREPLY=( $(compgen -W '${OPTS}' -- ${COMP_WORDS[COMP_CWORD]}) )
