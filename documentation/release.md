@@ -24,6 +24,13 @@
 
 # Releases
 
+## 1.14.0-2.0.53
+
+- Add microdds_client for ROS2 support
+- Remove bad characters from postinst causing installation errors
+- Added new voxl-configure-px4 options
+- Remove prepare-fc-image.sh, not needed anymore
+
 ## 1.14.0-2.0.52
 
 - Add modal_io_bridge to postinst

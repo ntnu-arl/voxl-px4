@@ -1,6 +1,9 @@
 1.14.0-2.0.53
     * new voxl-configure-px4 options for d0010, d0011, d0013, and generic voxl2-mini
     * new voxl-configure-px4 options for sentinel_v2 aka d0006_v2
+    * Add microdds_client for ROS2 support
+    * Remove bad characters from postinst causing installation errors
+    * Remove prepare-fc-image.sh, not needed anymore
 1.14.0-2.0.52
     * Add modal_io_bridge to postinst
     * Add daemon restart attempt to postinst

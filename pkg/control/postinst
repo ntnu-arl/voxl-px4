@@ -47,6 +47,7 @@ ln -f -s px4 px4-mb12xx
 ln -f -s px4 px4-mc_att_control
 ln -f -s px4 px4-mc_pos_control
 ln -f -s px4 px4-measairspeedsim
+ln -f -s px4 px4-microdds_client
 ln -f -s px4 px4-mixer
 ln -f -s px4 px4-modal_io_bridge
 ln -f -s px4 px4-motor_ramp
