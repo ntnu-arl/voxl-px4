@@ -142,6 +142,6 @@ set +e
 if [ -f /bin/systemctl ]; then
 	systemctl daemon-reload
 fi
-​
+
 # exit 0 even if systemctl failed
 exit 0
