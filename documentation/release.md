@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.54
+
+- Added support for protocol version 0x01 in SpektrumRC driver
+
 ## 1.14.0-2.0.53
 
 - Add microdds_client for ROS2 support

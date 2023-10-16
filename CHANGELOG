@@ -1,3 +1,5 @@
+1.14.0-2.0.54
+    * Added support for protocol version 0x01 in SpektrumRC driver
 1.14.0-2.0.53
     * new voxl-configure-px4 options for d0010, d0011, d0013, and generic voxl2-mini
     * new voxl-configure-px4 options for sentinel_v2 aka d0006_v2
