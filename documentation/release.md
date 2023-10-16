@@ -24,6 +24,11 @@
 
 # Releases
 
+## 1.14.0-2.0.55
+
+- Updates to mc inject system id parameters
+- Restart system id when props not armed
+
 ## 1.14.0-2.0.54
 
 - Added support for protocol version 0x01 in SpektrumRC driver
