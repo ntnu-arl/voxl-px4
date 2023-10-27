@@ -24,6 +24,11 @@
 
 # Releases
 
+## 1.14.0-2.0.56
+
+- Implemented a backwards compatible way to check for the DSP CPU load
+- Added docker build files and scripts for gazebo (with patches)
+
 ## 1.14.0-2.0.55
 
 - Updates to mc inject system id parameters
