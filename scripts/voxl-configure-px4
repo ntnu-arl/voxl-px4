@@ -101,8 +101,10 @@ reset_config_file_to_default () {
     echo -e "#!/bin/bash\n#\n# voxl-px4 Configuration File\
     \n#\
     \n# GPS:\
-    \n#     Tell PX4 which GPS to use. \
-    \n#     Options include: [NONE, MATEK, MRO_M10136A, HOLYBRO]\
+    \n#     Tell PX4 which GPS to use. If there is no GPS unit use NONE. Otherwise\
+    \n#     choose AUTODETECT and the startup script will attempt to automatically\
+    \n#     configure the GPS, magnetometer, and status LED\
+    \n#     Options include: [NONE, AUTODETECT]\
     \n#\
     \n# RC:\
     \n#     Tell PX4 which RC transmitter to use. \
@@ -187,27 +189,27 @@ case ${arg} in
 		;;
 	"d0005_v2"|"starling_v2")
 		reset_config_file_to_default
-		set_param GPS MRO_M10136A
+		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
 	"d0006_v1"|"sentinel_v1")
 		## First revision Sentinel with Holybro GPS and Spektrum Radio
 		reset_config_file_to_default
-		set_param GPS HOLYBRO
+		set_param GPS AUTODETECT
 		set_param RC SPEKTRUM
 		enable_service_and_exit
 		;;
 	"d0006_v2"|"sentinel_v2")
 		## Second revision Sentinel with MRO GPS and ELRS radio
 		reset_config_file_to_default
-		set_param GPS MRO_M10136A
+		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		enable_service_and_exit
 		;;
 	"d0008"|"fpv_revb")
 		reset_config_file_to_default
-		set_param GPS MATEK
+		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		set_param OSD ENABLE
 		enable_service_and_exit
@@ -222,7 +224,7 @@ case ${arg} in
 	"d0011"|"d0013"|"voxl2-mini")
 		## voxl2-mini setup, or voxl2 with mini esc
 		reset_config_file_to_default
-		set_param GPS MRO_M10136A
+		set_param GPS AUTODETECT
 		set_param RC CRSF_RAW
 		set_param POWER_MANAGER NONE
 		enable_service_and_exit

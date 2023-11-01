@@ -24,6 +24,11 @@
 
 # Releases
 
+## 1.14.0-2.0.57
+
+- Changed GPS, magnetometer, and status LED configuration to auto-detection
+- Some updates to the gazebo HITL support
+
 ## 1.14.0-2.0.56
 
 - Implemented a backwards compatible way to check for the DSP CPU load
