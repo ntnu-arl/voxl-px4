@@ -24,6 +24,12 @@
 
 # Releases
 
+## 1.14.0-2.0.58
+
+- Renamed modal_io to voxl_esc, including all associated parameter names
+- Added support for voxl2_io
+- Added support for RC GHST protocol on FlightCore and VOXL2
+
 ## 1.14.0-2.0.57
 
 - Changed GPS, magnetometer, and status LED configuration to auto-detection

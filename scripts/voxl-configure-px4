@@ -109,7 +109,11 @@ reset_config_file_to_default () {
     \n# RC:\
     \n#     Tell PX4 which RC transmitter to use. \
     \n#     Use EXTERNAL when getting RC control from external Mavlink messages (e.g Via QGC)\
-    \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, M0065_SBUS, EXTERNAL, FAKE_RC_INPUT]\
+    \n#     Options include: [SPEKTRUM, CRSF_MAV, CRSF_RAW, OLD_M0065_SBUS, NEW_M0065_SBUS, EXTERNAL, FAKE_RC_INPUT]\
+    \n#\
+    \n# ESC:\
+    \n#     Tell PX4 which type of ESC to use. \
+    \n#     Options include: [VOXL_ESC, VOXL2_IO_PWM_ESC]\
     \n#\
     \n# POWER_MANAGER:\
     \n#     Tell PX4 which power manager to use. \
@@ -145,6 +149,7 @@ reset_config_file_to_default () {
 
     echo "GPS=NONE" >> $CONFIG_FILE
     echo "RC=SPEKTRUM" >> $CONFIG_FILE
+    echo "ESC=VOXL_ESC" >> $CONFIG_FILE
 	echo "POWER_MANAGER=VOXLPM" >> $CONFIG_FILE
     echo "DISTANCE_SENSOR=NONE" >> $CONFIG_FILE
     echo "OSD=DISABLE" >> $CONFIG_FILE
