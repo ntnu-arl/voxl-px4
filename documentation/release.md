@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.59
+
+- Added version check on initialization for voxl2_io
+
 ## 1.14.0-2.0.58
 
 - Renamed modal_io to voxl_esc, including all associated parameter names
