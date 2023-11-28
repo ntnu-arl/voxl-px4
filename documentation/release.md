@@ -24,6 +24,11 @@
 
 # Releases
 
+## 1.14.0-2.0.60
+
+- Change default value of the GF_PREDICT parameter to zero since the geofence prediction doesn't work very well
+- Added check to make sure that hrt_elapsed_time can never be negative and consequently become a huge positive value since the value is unsigned
+
 ## 1.14.0-2.0.59
 
 - Added version check on initialization for voxl2_io
