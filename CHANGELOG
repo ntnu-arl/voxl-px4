@@ -1,3 +1,9 @@
+1.14.0-2.0.62
+    * Fixed the status LED logic to not blink PURPLE if the COM_CPU_MAX parameter is set to disabled
+    * Added check to make sure that hrt_elapsed_time can never be negative and consequently become a huge positive value since the value is unsigned - This time in the right place!
+    * Added second instance of cpu load so that both DSP and Apps can report and log it
+    * Start apps instance of load_mon in HITL as well
+    * Change CPU load to a system CPU load that captures all processes and a process CPU load that captures just the PX4 process
 1.14.0-2.0.61
     * Added apps_sbus driver to support M0065 SBUS on apps processor for M0052
     * Fixed units on cpuload topic for Qurt platform
