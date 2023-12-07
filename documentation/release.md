@@ -24,6 +24,11 @@
 
 # Releases
 
+## 1.14.0-2.0.63
+
+- Add voxl-esc back into apps side build to fix missing actuators tab on QGC
+- Added default parameters for voxl2_io so that it shows up on QGC actuators tab
+
 ## 1.14.0-2.0.62
 
 - Fixed the status LED logic to not blink PURPLE if the COM_CPU_MAX parameter is set to disabled
