@@ -24,6 +24,13 @@
 
 # Releases
 
+## 1.14.0-2.0.64
+
+- 60k RPM support in voxl-esc driver
+- HITL parameters to control sending of sensor_gps and sensor_mag
+- GPS UBX driver changes for baudrate ordering, BBR writes, and retries to help with M10
+- Move time offset to apps side so that DSP is now the timing center.
+
 ## 1.14.0-2.0.63
 
 - Add voxl-esc back into apps side build to fix missing actuators tab on QGC
