@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.65
+
+- Updates to the voxl2_io version check to allow retries with eventual failure
+
 ## 1.14.0-2.0.64
 
 - 60k RPM support in voxl-esc driver
