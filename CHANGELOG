@@ -1,3 +1,11 @@
+1.14.0-2.0.66
+    * Improved the timeout mechanism on the muorb aggregator to avoid unneeded data sends
+    * Added the ORB queue length to the meta data so that it can be properly set by the UORB COMMUNICATOR interface code
+    * Fixed missing queue length adjustment from remote topics
+    * Added param client / server status values
+    * Fixed a uORB / muorb subscription issue that was causing duplication of topic publication data
+    * Added some useful statistics and status reporting to the muorb modules
+    * add params and set flags in case of ESC warn and over temperature events (#53)
 1.14.0-2.0.65
     * Updates to the voxl2_io version check to allow retries with eventual failure
 1.14.0-2.0.64
