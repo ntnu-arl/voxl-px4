@@ -24,6 +24,10 @@
 
 # Releases
 
+## 1.14.0-2.0.67
+- Support for VIO waypoint missions without GPS. With or without magnetometer.
+- Miscellaneous HITL infrastructure improvements
+
 ## 1.14.0-2.0.66
 - Improved the timeout mechanism on the muorb aggregator to avoid unneeded data sends
 - Added the ORB queue length to the meta data so that it can be properly set by the UORB COMMUNICATOR interface code
