@@ -24,6 +24,9 @@
 
 # Releases
 
+## 1.14.0-2.0.68
+- A couple of voxl2_io driver updates to improve initial protocol check and calibration
+
 ## 1.14.0-2.0.67
 - Support for VIO waypoint missions without GPS. With or without magnetometer.
 - Miscellaneous HITL infrastructure improvements
