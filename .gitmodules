@@ -1,4 +1,4 @@
 [submodule "px4-firmware"]
 	path = px4-firmware
-	url = https://github.com/modalai/px4-firmware
-	branch = voxl-dev
+	url = https://github.com/ntnu-arl/modalai-px4-firmware.git
+	branch = dev/double_esc
