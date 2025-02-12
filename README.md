@@ -1,6 +1,6 @@
 # CBF Safety Filter
 
-This fork contains the implementation of the embedded CBF safety filter for multirotors. We refer the user to the documentation in [the dedicated github](https://github.com/ntnu-arl/PX4-CBF), and leave the remainder of the voxl-px4 firmware README untouched.
+This fork contains the implementation of the embedded CBF safety filter for multirotors. We refer the user to the documentation in [the dedicated github](https://github.com/ntnu-arl/PX4-CBF), and leave the remainder of the [voxl-px4](https://gitlab.com/voxl-public/voxl-sdk/services/voxl-px4) firmware README untouched.
 
 # voxl-px4
 
